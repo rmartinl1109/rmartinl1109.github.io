@@ -6,12 +6,21 @@
     <meta name="description" content="Instalación de la aplicación geoCat 2 para iPad">
     <title>Instalar geoCat 2</title>
     <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f6f8fb;
+            color: #1f2937;
+        }
         .large-text {
             font-size: 30px;
         }
         .download-button {
-            font-size: 30px;
-            padding: 10px 20px;
+            font-size: clamp(20px, 3.8vw, 30px);
+            font-weight: 600;
+            line-height: 1.25;
+            width: min(90vw, 760px);
+            padding: 14px 20px;
             background-color: #4CAF50; /* Green */
             color: white;
             border: none;
@@ -24,11 +33,40 @@
         .download-button:hover {
             background-color: #45a049;
         }
+        .download-button.previous {
+            background-color: #1f6feb;
+        }
+        .download-button.previous:hover {
+            background-color: #1a5fc4;
+        }
         .center-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            gap: 20px;
+            min-height: 100dvh;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+        .install-note {
+            width: min(90vw, 760px);
+            font-size: 18px;
+            text-align: center;
+        }
+        .updated-date {
+            width: min(90vw, 760px);
+            font-size: 16px;
+            text-align: center;
+            color: #4b5563;
+        }
+        .manifest-link {
+            font-size: 16px;
+            color: #1f6feb;
+            text-decoration: none;
+        }
+        .manifest-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -36,9 +74,15 @@
     <div class="center-container">
         <a href="itms-services://?action=download-manifest&url=https://rmartinl1109.github.io/geoCat2.plist"
            class="download-button"
-           aria-label="Instalar la aplicación geoCat 2 para iPad versión 26.05.25 (2030)">
+           aria-label="Instalar la nueva versión de la aplicación geoCat 2 para iPad versión 26.05.25 (2030)">
            Instalar geoCat 2 ipad version 26.05.25 (2030)
         </a>
+          <a href="itms-services://?action=download-manifest&url=https://rmartinl1109.github.io/geoCat2_old.plist"
+              class="download-button previous"
+              aria-label="Instalar la versión anterior de geoCat 2 para iPad 26.05.24 (1330)">
+              Instalar geoCat 2 ipad version anterior 26.05.24 (1330)
+          </a>
+        <p class="updated-date">Ultima actualizacion: 30/05/2026</p>
     </div>
 </body>
 </html>
