@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,19 @@
             background: #f6f8fb;
             color: #1f2937;
         }
+
         .large-text {
             font-size: 30px;
         }
+
         .download-button {
             font-size: clamp(20px, 3.8vw, 30px);
             font-weight: 600;
             line-height: 1.25;
             width: min(90vw, 760px);
             padding: 14px 20px;
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50;
+            /* Green */
             color: white;
             border: none;
             border-radius: 5px;
@@ -30,15 +34,19 @@
             display: inline-block;
             cursor: pointer;
         }
+
         .download-button:hover {
             background-color: #45a049;
         }
+
         .download-button.previous {
             background-color: #1f6feb;
         }
+
         .download-button.previous:hover {
             background-color: #1a5fc4;
         }
+
         .center-container {
             display: flex;
             flex-direction: column;
@@ -49,43 +57,51 @@
             padding: 24px;
             box-sizing: border-box;
         }
+
         .install-note {
             width: min(90vw, 760px);
             font-size: 18px;
             text-align: center;
         }
+
         .updated-date {
             width: min(90vw, 760px);
             font-size: 16px;
             text-align: center;
             color: #4b5563;
         }
+
         .manifest-link {
             font-size: 16px;
             color: #1f6feb;
             text-decoration: none;
         }
+
         .manifest-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <div class="center-container">
         <a href="itms-services://?action=download-manifest&url=https://rmartinl1109.github.io/geoCat2.plist"
-           class="download-button"
-           aria-label="Instalar la nueva versión de la aplicación geoCat 2 para iPad versión 26.08.12 (2344)">
-           Instalar geoCat 2 ipad version ultima 26.08.12 (2344)
+            class="download-button"
+            aria-label="Instalar la nueva versión de la aplicación geoCat 2 para iPad versión 26.08.30 (2245)">
+            Instalar geoCat 2 ipad version ultima 26.08.30 (2245)
         </a>
-        <p class="updated-date">Corregir la exportacion de municipio que daba un error</p>
-        <p class="updated-date">IMPORTANTE: Asegúrese de haber sacado las fotografias del ipad antes de usar la nueva opcion.</p>
+        <p class="updated-date">Corregir la vista de construcciones cuando se cambio entre los modos de vista del mapa
+        </p>
+        <p class="updated-date">IMPORTANTE: Asegúrese de haber sacado las fotografias del ipad antes de usar la nueva
+            opcion.</p>
         <p class="updated-date"> </p>
         <a href="itms-services://?action=download-manifest&url=https://rmartinl1109.github.io/geoCat2_old.plist"
             class="download-button previous"
-            aria-label="Instalar la versión anterior de geoCat 2 para iPad 26.05.31 (1130)">
-            Instalar geoCat 2 ipad version anterior 26.05.31 (1130)
+            aria-label="Instalar la versión anterior de geoCat 2 para iPad 26.08.12 (2344)">
+            Instalar geoCat 2 ipad version anterior 26.08.12 (2344)
         </a>
-        <p class="updated-date">Ultima actualizacion: 12/08/2026</p>
+        <p class="updated-date">Ultima actualizacion: 30/08/2026</p>
     </div>
 </body>
+
 </html>
