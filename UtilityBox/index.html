@@ -39,11 +39,13 @@
         <a href="#overview" class="nav-link active">Overview</a>
         <a href="#implemented" class="nav-link">Live Modules <span class="nav-counter live-pill">10</span></a>
         <a href="#roadmap" class="nav-link">Roadmap <span class="nav-counter roadmap-pill">15</span></a>
+        <a href="#changelog" class="nav-link">Changelog <span class="nav-counter version-pill">v1.0</span></a>
         <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#support" class="nav-link">Support &amp; Feedback</a>
       </nav>
 
       <div class="header-actions">
-        <a href="#implemented" class="btn btn-secondary btn-sm" id="btn-explore-modules">Explore Tools</a>
+        <a href="#support" class="btn btn-secondary btn-sm" id="btn-header-support">Support</a>
         <a href="#roadmap" class="btn btn-primary btn-sm" id="btn-header-roadmap">View Roadmap</a>
       </div>
     </div>
@@ -203,6 +205,104 @@
       </div>
     </section>
 
+    <!-- SECTION 3: Version Changelog & History -->
+    <section class="changelog-section" id="changelog">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-kicker changelog-kicker">Release Milestones</span>
+            <h2 class="section-title">Changelog &amp; Release History <span class="count-badge count-version">v1.0 Current</span></h2>
+            <p class="section-subtitle">
+              Follow the active development journey of UtilityBox, newly landed utility suites, performance optimisations, and release notes.
+            </p>
+          </div>
+          <div class="section-actions">
+            <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener" class="badge badge-success">
+              <span class="badge-dot"></span> v1.0.0 Stable
+            </a>
+          </div>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Milestone: v1.0 Production Release -->
+          <div class="timeline-item">
+            <div class="timeline-marker live-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-badge-group">
+                  <span class="version-tag current-tag">v1.0.0</span>
+                  <span class="release-date">September 2026 &bull; Initial Production Suite</span>
+                </div>
+                <h3 class="timeline-title">UtilityBox 1.0 — 10 High-Performance Native Utilities</h3>
+              </div>
+
+              <p class="timeline-desc">
+                First stable release engineered exclusively for macOS 14+ Sonoma and macOS 15+ Sequoia. Designed from scratch with pure Swift 6, reactive `@Observable` architecture, native Darwin sockets, Mach kernel interfaces, and full App Sandbox compliance with zero root requirements.
+              </p>
+
+              <div class="change-groups">
+                <div class="change-category">
+                  <span class="change-category-label add-label">✨ 10 Implemented Utilities</span>
+                  <ul class="change-list">
+                    <li><strong>LAN Network Scanner:</strong> High-concurrency /24 CIDR sweep, Bonjour mDNS discovery, and direct jump to Ping diagnostics.</li>
+                    <li><strong>Ping Diagnostic Tool:</strong> Non-root ICMP datagram sockets and TCP RTT modes with live Swift Charts latency curve and jitter tracking.</li>
+                    <li><strong>Port Checker &amp; Auditor:</strong> BSD non-blocking sockets with poll() multiplexing and active banner grabbing (SSH, HTTP, FTP, MySQL).</li>
+                    <li><strong>DNS Lookup &amp; Inspector:</strong> Comprehensive multi-record queries (A, AAAA, MX, TXT, SOA, CAA), global propagation, recursive trace, and raw dig console.</li>
+                    <li><strong>Speed Test Benchmark:</strong> Cloudflare Edge Anycast multi-thread benchmark, loaded latency bufferbloat scoring (A+ to F), and speedometer gauge.</li>
+                    <li><strong>Hardware &amp; System Monitor:</strong> Mach microkernel telemetry, per-core P-Cores/E-Cores load grid, unified memory pressure, and top processes.</li>
+                    <li><strong>Disk Analyzer &amp; Cleaner:</strong> Interactive APFS Treemap, Large Files Hunter (>50MB to >1GB), and safe developer/browser cache cleaner.</li>
+                    <li><strong>Hi-Fi Audio Converter &amp; Studio:</strong> Batch audio conversion (M4A, ALAC, FLAC 24-bit, WAV, MP3 with ID3v2.3), -1 dBFS volume normalization, and A/B waveform player.</li>
+                    <li><strong>Interactive Unit Converter:</strong> Real-time dual sliders, IEC binary vs SI decimal storage, UI density points, and download time estimator.</li>
+                    <li><strong>QR Code Studio &amp; Scanner:</strong> Stylized vector generation, SF Symbols center icons, and Apple Vision offline barcode decoding.</li>
+                  </ul>
+                </div>
+
+                <div class="change-category">
+                  <span class="change-category-label arch-label">⚡ Core Architecture &amp; Experience</span>
+                  <ul class="change-list">
+                    <li>Engineered with Swift 6 and strict concurrency safety throughout.</li>
+                    <li>Zero third-party dependencies: 100% native Darwin, Network.framework, and Apple system APIs.</li>
+                    <li>Full multilingual localization across 6 languages (English default, Spanish, French, German, Portuguese, Simplified Chinese).</li>
+                    <li>Cinematic splash screen presentation, 3D squircle production icon set, and Favorites &amp; Recents quick-access hubs.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milestone: Upcoming v1.1.0 Roadmap Preview -->
+          <div class="timeline-item upcoming-item">
+            <div class="timeline-marker planned-marker"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-badge-group">
+                  <span class="version-tag planned-tag">v1.1.0 (Next Release)</span>
+                  <span class="release-date">Scheduled &bull; Active Roadmap</span>
+                </div>
+                <h3 class="timeline-title">Local Web Server, Battery Diagnostics &amp; Image Studio</h3>
+              </div>
+
+              <p class="timeline-desc">
+                Upcoming major wave introducing local network sharing capabilities, advanced MacBook battery telemetry, and next-generation media optimization tools.
+              </p>
+
+              <div class="change-groups">
+                <div class="change-category">
+                  <span class="change-category-label planned-label">🚀 Planned Release Wave</span>
+                  <ul class="change-list">
+                    <li><strong>Local Web Server:</strong> Instant HTTP static file server with QR pairing for zero-configuration mobile transfers.</li>
+                    <li><strong>Battery Health &amp; Telemetry:</strong> MacBook cycle counts, real mAh capacity vs factory design, and live charging wattage.</li>
+                    <li><strong>Image Compressor &amp; Optimizer:</strong> Multithreaded WebP and AVIF compression with interactive before/after split slider.</li>
+                    <li><strong>Clean App Uninstaller:</strong> Deep scan of Application Support, caches, and orphaned configuration plists.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Architectural Deep Dive Section -->
     <section class="arch-section" id="architecture">
       <div class="section-container">
@@ -304,6 +404,87 @@
         </div>
       </div>
     </section>
+
+    <!-- SECTION 5: Support & Feedback Center -->
+    <section class="support-section" id="support">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <span class="section-kicker support-kicker">Developer Support Desk</span>
+          <h2 class="section-title">Support, Feedback &amp; Suggestions</h2>
+          <p class="section-subtitle">
+            Need technical assistance, discovered a bug, or want to suggest a new utility? Contact our engineering team directly or compose a pre-formatted message below.
+          </p>
+        </div>
+
+        <div class="support-card-grid">
+          <!-- Direct Email Box -->
+          <div class="support-info-card">
+            <div class="support-icon-wrap">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3 class="support-card-title">Official Support Desk</h3>
+            <p class="support-card-desc">
+              Direct inbox monitored continuously by the developer. Responses and acknowledgements are typically dispatched within 24 to 48 hours.
+            </p>
+            
+            <div class="email-copy-pill" id="email-copy-pill">
+              <span class="email-address-text" id="official-email-text">utilitybox.support@rmartinl1109.com</span>
+              <button class="btn-copy-email" id="btn-copy-email" type="button" title="Copy to clipboard">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span id="copy-btn-text">Copy</span>
+              </button>
+            </div>
+
+            <div class="support-perks">
+              <div class="perk-item"><span class="perk-check">✓</span> <strong>Feature Requests:</strong> Reviewed for inclusion in future roadmap waves.</div>
+              <div class="perk-item"><span class="perk-check">✓</span> <strong>Bug Reports:</strong> Investigated and addressed with high priority.</div>
+              <div class="perk-item"><span class="perk-check">✓</span> <strong>Compatibility:</strong> Guidance for macOS Sonoma (14) &amp; Sequoia (15).</div>
+            </div>
+          </div>
+
+          <!-- Interactive Mailto Composer -->
+          <div class="support-form-card">
+            <div class="form-type-selector" id="form-type-selector">
+              <button class="type-btn active" data-type="feature" type="button">
+                <span>💡</span> Feature Request
+              </button>
+              <button class="type-btn" data-type="bug" type="button">
+                <span>🐛</span> Bug Report
+              </button>
+              <button class="type-btn" data-type="inquiry" type="button">
+                <span>✉️</span> General Inquiry
+              </button>
+            </div>
+
+            <form id="support-composer-form" class="composer-form" onsubmit="event.preventDefault(); window.submitSupportComposer();">
+              <div class="form-group">
+                <label for="composer-subject" class="form-label">Subject</label>
+                <input type="text" id="composer-subject" class="form-input" placeholder="e.g., Suggestion: JSON &amp; YAML Formatter Utility" required>
+              </div>
+
+              <div class="form-group">
+                <label for="composer-message" class="form-label">Message Details</label>
+                <textarea id="composer-message" class="form-textarea" rows="4" placeholder="Describe the feature or bug steps in detail..." required></textarea>
+              </div>
+
+              <div class="form-group form-checkbox-group">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="include-specs-check" checked>
+                  <span class="checkbox-label">Include browser / platform diagnostics (macOS version, screen density)</span>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-block" id="btn-send-support">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Compose &amp; Send in Email Client
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Detail Modal for Interactive Deep Dive -->
@@ -360,6 +541,7 @@
       </div>
 
       <div class="footer-links">
+        <a href="mailto:utilitybox.support@rmartinl1109.com" class="footer-tag email-link">✉️ utilitybox.support@rmartinl1109.com</a>
         <span class="footer-tag">10 Live Modules</span>
         <span class="footer-tag">15 Roadmap Items</span>
         <span class="footer-tag">App Sandbox Ready</span>

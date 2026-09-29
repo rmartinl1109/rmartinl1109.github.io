@@ -874,3 +874,101 @@ function escapeHTML(str) {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
+
+// =========================================================================
+// Support & Feedback Desk Handlers
+// =========================================================================
+const SUPPORT_EMAIL = "utilitybox.support@rmartinl1109.com";
+let currentSupportType = "feature";
+
+const SUPPORT_TYPE_CONFIG = {
+  feature: {
+    prefix: "[UtilityBox] Feature Request",
+    placeholderSubject: "e.g., Suggestion: JSON & YAML Formatter Utility",
+    placeholderMessage: "Describe the functionality you'd love to see in UtilityBox and why it would be valuable..."
+  },
+  bug: {
+    prefix: "[UtilityBox] Bug Report",
+    placeholderSubject: "e.g., Issue with DNS Lookup PTR query timeout",
+    placeholderMessage: "Steps to reproduce:\n1. Open module...\n2. Run action...\n\nExpected behavior:\nActual behavior:"
+  },
+  inquiry: {
+    prefix: "[UtilityBox] General Inquiry",
+    placeholderSubject: "e.g., Question regarding macOS Sequoia compatibility",
+    placeholderMessage: "How can we help you? Write your question or feedback here..."
+  }
+};
+
+// Setup Support listeners
+document.addEventListener("DOMContentLoaded", () => {
+  setupSupportListeners();
+});
+
+function setupSupportListeners() {
+  // Copy email button
+  const copyBtn = document.getElementById("btn-copy-email");
+  const copyBtnText = document.getElementById("copy-btn-text");
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(SUPPORT_EMAIL).then(() => {
+        if (copyBtnText) copyBtnText.textContent = "Copied! ✓";
+        copyBtn.style.background = "rgba(16, 185, 129, 0.3)";
+        copyBtn.style.borderColor = "rgba(16, 185, 129, 0.6)";
+
+        setTimeout(() => {
+          if (copyBtnText) copyBtnText.textContent = "Copy";
+          copyBtn.style.background = "";
+          copyBtn.style.borderColor = "";
+        }, 2500);
+      }).catch(() => {
+        prompt("Copy support email:", SUPPORT_EMAIL);
+      });
+    });
+  }
+
+  // Type selector buttons
+  const typeButtons = document.querySelectorAll(".type-btn");
+  const subjectInput = document.getElementById("composer-subject");
+  const messageInput = document.getElementById("composer-message");
+
+  typeButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      typeButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      currentSupportType = btn.getAttribute("data-type") || "feature";
+      const config = SUPPORT_TYPE_CONFIG[currentSupportType];
+
+      if (config) {
+        if (subjectInput) subjectInput.placeholder = config.placeholderSubject;
+        if (messageInput) messageInput.placeholder = config.placeholderMessage;
+      }
+    });
+  });
+}
+
+window.submitSupportComposer = function() {
+  const subjectInput = document.getElementById("composer-subject");
+  const messageInput = document.getElementById("composer-message");
+  const includeSpecs = document.getElementById("include-specs-check");
+
+  const rawSubject = subjectInput ? subjectInput.value.trim() : "";
+  const rawMessage = messageInput ? messageInput.value.trim() : "";
+
+  if (!rawSubject || !rawMessage) return;
+
+  const config = SUPPORT_TYPE_CONFIG[currentSupportType] || SUPPORT_TYPE_CONFIG.feature;
+  const fullSubject = `${config.prefix}: ${rawSubject}`;
+
+  let fullBody = rawMessage;
+
+  if (includeSpecs && includeSpecs.checked) {
+    const platformSpecs = `\n\n--------------------------------\nClient Environment:\nPlatform: ${navigator.userAgent}\nScreen: ${window.screen.width}x${window.screen.height} (${window.devicePixelRatio || 1}x DPI)\nDate: ${new Date().toISOString()}\n--------------------------------`;
+    fullBody += platformSpecs;
+  }
+
+  const mailtoLink = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(fullBody)}`;
+  window.location.href = mailtoLink;
+};
+
