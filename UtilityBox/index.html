@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UtilityBox for macOS — High-Performance System & Network Suite</title>
+  <meta name="description" content="UtilityBox is a native macOS suite built with Swift 6 and SwiftUI. Modular, ultra-fast system telemetry, network diagnostics, media conversion, and developer utilities with zero root requirements and 100% App Sandbox compliance.">
+  <meta name="keywords" content="macOS utility, Swift 6, SwiftUI, Network Scanner, Ping, Port Checker, DNS Lookup, Speed Test, System Monitor, Disk Analyzer, Audio Converter, Unit Converter, QR Code Generator">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background glow layers -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-middle"></div>
+  <div class="ambient-glow glow-bottom"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <img src="assets/app-icon.png" alt="UtilityBox App Icon" class="brand-icon" id="brand-logo">
+        <div class="brand-text">
+          <span class="brand-title">UtilityBox</span>
+          <span class="brand-badge">macOS Sonoma &amp; Sequoia</span>
+        </div>
+      </div>
+
+      <nav class="header-nav">
+        <a href="#overview" class="nav-link active">Overview</a>
+        <a href="#implemented" class="nav-link">Live Modules <span class="nav-counter live-pill">10</span></a>
+        <a href="#roadmap" class="nav-link">Roadmap <span class="nav-counter roadmap-pill">15</span></a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#implemented" class="btn btn-secondary btn-sm" id="btn-explore-modules">Explore Tools</a>
+        <a href="#roadmap" class="btn btn-primary btn-sm" id="btn-header-roadmap">View Roadmap</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="overview">
+      <div class="hero-container">
+        <div class="hero-pill-badge">
+          <span class="pulse-dot"></span>
+          <span>Swift 6 &bull; Native Apple Frameworks &bull; Zero External Dependencies</span>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-app-icon-wrap">
+            <div class="app-icon-glow"></div>
+            <img src="assets/app-icon.png" alt="UtilityBox Squircle Icon" class="hero-app-icon" id="hero-app-icon">
+          </div>
+          
+          <h1 class="hero-title">
+            The High-Performance <br>
+            <span class="gradient-text">Swiss Army Knife for macOS</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            A modular suite of professional diagnostic, networking, system telemetry, media processing, and developer utilities. Engineered in <strong>pure Swift 6 and SwiftUI</strong>, fully compliant with Apple's strict <strong>App Sandbox</strong> with zero root privileges required.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#implemented" class="btn btn-primary btn-lg" id="hero-btn-implemented">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+              Explore 10 Implemented Modules
+            </a>
+            <a href="#roadmap" class="btn btn-glass btn-lg" id="hero-btn-roadmap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              View 15 Planned Roadmap Tools
+            </a>
+          </div>
+
+          <!-- Feature Tags -->
+          <div class="hero-tech-badges">
+            <span class="tech-tag"><span class="tag-icon">⚡</span> Apple Silicon &amp; Intel</span>
+            <span class="tech-tag"><span class="tag-icon">🔒</span> Strict App Sandbox</span>
+            <span class="tech-tag"><span class="tag-icon">🌐</span> 6 Native Languages</span>
+            <span class="tech-tag"><span class="tag-icon">📊</span> Apple Swift Charts</span>
+            <span class="tech-tag"><span class="tag-icon">🚀</span> Concurrency &amp; Async/Await</span>
+          </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="stats-ribbon" id="stats-ribbon">
+          <div class="stat-card">
+            <span class="stat-value" id="stat-count-implemented">10</span>
+            <span class="stat-label">Active Modules</span>
+            <span class="stat-desc">Production-ready &amp; tested</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="stat-count-planned">15</span>
+            <span class="stat-label">Roadmap Utilities</span>
+            <span class="stat-desc">Actively in development</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">0</span>
+            <span class="stat-label">External Dependencies</span>
+            <span class="stat-desc">100% native Darwin &amp; Apple APIs</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">6</span>
+            <span class="stat-label">Supported Languages</span>
+            <span class="stat-desc">EN, ES, FR, DE, PT, ZH-Hans</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Toolbar -->
+    <section class="toolbar-section" id="filter-bar">
+      <div class="toolbar-container">
+        <!-- Category Filter Pills -->
+        <div class="category-tabs" id="category-tabs" role="tablist">
+          <button class="cat-tab active" data-category="all" role="tab" id="tab-cat-all">
+            <span class="tab-icon">✨</span> All Categories
+          </button>
+          <button class="cat-tab" data-category="network" role="tab" id="tab-cat-network">
+            <span class="tab-icon">🌐</span> Network
+          </button>
+          <button class="cat-tab" data-category="system" role="tab" id="tab-cat-system">
+            <span class="tab-icon">⚡</span> System
+          </button>
+          <button class="cat-tab" data-category="multimedia" role="tab" id="tab-cat-multimedia">
+            <span class="tab-icon">🎨</span> Multimedia
+          </button>
+          <button class="cat-tab" data-category="converters" role="tab" id="tab-cat-converters">
+            <span class="tab-icon">🔄</span> Converters &amp; Dev
+          </button>
+        </div>
+
+        <!-- Search & Status Toggle -->
+        <div class="toolbar-controls">
+          <div class="search-box">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="tool-search-input" placeholder="Search tools, capabilities, protocols..." autocomplete="off">
+            <button id="search-clear-btn" class="search-clear hidden">&times;</button>
+          </div>
+
+          <div class="status-toggle-group">
+            <button class="status-toggle-btn active" data-status="all" id="filter-status-all">All</button>
+            <button class="status-toggle-btn" data-status="implemented" id="filter-status-implemented">Live (10)</button>
+            <button class="status-toggle-btn" data-status="roadmap" id="filter-status-roadmap">Roadmap (15)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: Implemented Modules (10 Live) -->
+    <section class="modules-section" id="implemented">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-kicker live-kicker">Ready &amp; Functional</span>
+            <h2 class="section-title">Implemented Modules <span class="count-badge count-live">10 Available</span></h2>
+            <p class="section-subtitle">
+              Fully operational utilities registered in the application with reactive MVVM architecture, Swift Charts, Darwin sockets, and strict App Sandbox compliance.
+            </p>
+          </div>
+          <div class="section-actions">
+            <span class="badge badge-success"><span class="badge-dot"></span> 100% Operational</span>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="implemented-grid">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Roadmap Modules (15 Planned) -->
+    <section class="modules-section roadmap-section" id="roadmap">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <span class="section-kicker roadmap-kicker">Upcoming Utilities</span>
+            <h2 class="section-title">Development Roadmap <span class="count-badge count-roadmap">15 Planned</span></h2>
+            <p class="section-subtitle">
+              Scheduled utilities currently in architecture design and implementation phases. Follow our systematic releases across Network, System, Multimedia, and Converters.
+            </p>
+          </div>
+          <div class="section-actions">
+            <span class="badge badge-warning"><span class="badge-dot"></span> In Progress</span>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="roadmap-grid">
+          <!-- Populated dynamically via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Architectural Deep Dive Section -->
+    <section class="arch-section" id="architecture">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Engineering Foundation</span>
+          <h2 class="section-title">Architected for Speed, Security &amp; Elegance</h2>
+          <p class="section-subtitle">
+            How UtilityBox achieves maximum performance without compromising security or relying on bulky third-party dependencies.
+          </p>
+        </div>
+
+        <div class="arch-grid">
+          <div class="arch-card">
+            <div class="arch-icon-box blue-accent">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="arch-title">Swift 6 &amp; Observation</h3>
+            <p class="arch-desc">
+              Built using Apple's cutting-edge `@Observable` macro and `@MainActor` thread-safety guarantees. Eliminates Combine boilerplate, reduces memory overhead, and ensures snappy UI updates at 120Hz ProMotion.
+            </p>
+            <ul class="arch-features">
+              <li>Granular view invalidation with zero lag</li>
+              <li>Structured Swift Concurrency (`async/await`, `withTaskGroup`)</li>
+              <li>Data-race safety enabled throughout the codebase</li>
+            </ul>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-icon-box green-accent">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="arch-title">App Sandbox Compliant</h3>
+            <p class="arch-desc">
+              Full system and network audit capabilities achieved strictly within Apple's App Sandbox. Employs non-privileged ICMP datagram sockets, non-blocking TCP connect/poll probes, and Mach kernel APIs without needing `sudo`.
+            </p>
+            <ul class="arch-features">
+              <li>Compliant with macOS 14 Sonoma &amp; 15 Sequoia policies</li>
+              <li>`NSLocalNetworkUsageDescription` privacy enforcement</li>
+              <li>Ready for Mac App Store or Apple Notarized distribution</li>
+            </ul>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-icon-box purple-accent">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4M12 16V8"/></svg>
+            </div>
+            <h3 class="arch-title">Low-Level Darwin &amp; Mach APIs</h3>
+            <p class="arch-desc">
+              Direct access to the macOS XNU kernel interfaces including `host_processor_info`, `vm_statistics64`, `getifaddrs`, and `sysctl` gives microsecond telemetry precision that shell scripts simply cannot match.
+            </p>
+            <ul class="arch-features">
+              <li>Accurate Apple Silicon P-Core vs E-Core load breakdown</li>
+              <li>Real-time unified memory pressure &amp; compression telemetry</li>
+              <li>Fast non-blocking socket pools for 254-host CIDR sweeps</li>
+            </ul>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-icon-box orange-accent">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 class="arch-title">Full Internationalization</h3>
+            <p class="arch-desc">
+              Engineered from the ground up with multi-lingual support in 6 world languages. Live dynamic switching via `LocalizationManager.shared` without restarting the app.
+            </p>
+            <ul class="arch-features">
+              <li>English (Default), Spanish, French, German, Portuguese, Simplified Chinese</li>
+              <li>Consistent typography across all locales</li>
+              <li>Quick toggle in Settings (`Cmd + ,`)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Showcase Gallery / Tech Specs Section -->
+    <section class="specs-section">
+      <div class="section-container">
+        <div class="specs-banner">
+          <div class="specs-text">
+            <h3 class="specs-heading">Designed Exclusively for the Modern Mac</h3>
+            <p class="specs-subtext">
+              UtilityBox integrates seamlessly with macOS design principles: unified toolbar, translucent sidebars, Swift Charts visualizations, native drag-and-drop, and high-fidelity dark mode.
+            </p>
+            <div class="specs-checklist">
+              <span class="spec-item">✓ macOS 14.0+ (Sonoma) &amp; macOS 15+ (Sequoia)</span>
+              <span class="spec-item">✓ Universal Binary (Apple Silicon arm64 + Intel x86_64)</span>
+              <span class="spec-item">✓ Native Hi-Fi 3D Squircle Icon Set</span>
+              <span class="spec-item">✓ Responsive NavigationSplitView Layout</span>
+            </div>
+          </div>
+          <div class="specs-badge-box">
+            <div class="badge-circle">
+              <span class="badge-number">25</span>
+              <span class="badge-text">Total Utilities Suite</span>
+            </div>
+            <span class="badge-sub">10 Live &bull; 15 Roadmap</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal for Interactive Deep Dive -->
+  <div class="modal-backdrop" id="detail-modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-icon-wrap" id="modal-icon-wrap">
+          <span class="modal-icon" id="modal-icon">🌐</span>
+        </div>
+        <div class="modal-title-group">
+          <div class="modal-badges">
+            <span class="badge" id="modal-status-badge">Live</span>
+            <span class="badge badge-category" id="modal-category-badge">Network</span>
+          </div>
+          <h3 class="modal-title" id="modal-title">Module Title</h3>
+          <p class="modal-subtitle" id="modal-subtitle">Module Subtitle</p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4 class="modal-section-title">Overview &amp; Purpose</h4>
+          <p class="modal-text" id="modal-description"></p>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="modal-section-title">Technical Capabilities &amp; Features</h4>
+          <ul class="modal-list" id="modal-capabilities"></ul>
+        </div>
+
+        <div class="modal-section">
+          <h4 class="modal-section-title">Under the Hood Architecture</h4>
+          <div class="modal-code-box" id="modal-architecture"></div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-btn-dismiss">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/app-icon.png" alt="UtilityBox" class="footer-logo">
+        <div>
+          <p class="footer-title">UtilityBox for macOS</p>
+          <p class="footer-copy">Engineered with Swift 6, SwiftUI &amp; Native Apple Technologies.</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <span class="footer-tag">10 Live Modules</span>
+        <span class="footer-tag">15 Roadmap Items</span>
+        <span class="footer-tag">App Sandbox Ready</span>
+        <span class="footer-tag">macOS 14+ / 15+</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
