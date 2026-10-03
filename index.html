@@ -1,62 +1,719 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final-Countdown</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background-color: #0078d7;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        section {
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        .button {
-            display: inline-block;
-            background-color: #0078d7;
-            color: white;
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #005bb5;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roberto Martín — Software NATIVO para Apple (iOS & macOS)</title>
+  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown para iOS y UtilityBox para macOS.">
+  <meta name="keywords" content="Roberto Martín, iOS, macOS, Final Countdown, UtilityBox, Swift 6, SwiftUI, Apps Apple">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="FinalCountdown/assets/icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Roberto Martín — Aplicaciones Nativas iOS & macOS">
+  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown y UtilityBox.">
+  <meta property="og:image" content="FinalCountdown/assets/icon.png">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090b10;
+      --card-bg: rgba(18, 22, 34, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover-border: rgba(255, 255, 255, 0.2);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent-fc: #f59e0b;
+      --accent-fc-gradient: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      --accent-ub: #3b82f6;
+      --accent-ub-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      --badge-bg: rgba(255, 255, 255, 0.06);
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient background glows */
+    .glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+    .glow-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #f59e0b, transparent 70%);
+      top: -150px;
+      left: -100px;
+    }
+    .glow-2 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #3b82f6, transparent 70%);
+      top: 30%;
+      right: -150px;
+    }
+    .glow-3 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #8b5cf6, transparent 70%);
+      bottom: -200px;
+      left: 20%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      padding: 2.5rem 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+    .avatar-symbol {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #60a5fa;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .brand-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .header-btn {
+      padding: 0.55rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .header-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      text-align: center;
+    }
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .gradient-text-hero {
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+    }
+
+    /* Apps Showcase Grid */
+    .apps-section {
+      padding: 1rem 0 5rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-left: 1rem;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 2.25rem;
+    }
+    @media (max-width: 640px) {
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* App Card */
+    .app-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2.25rem;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .app-card.card-fc::before {
+      background: var(--accent-fc-gradient);
+    }
+    .app-card.card-ub::before {
+      background: var(--accent-ub-gradient);
+    }
+
+    .app-card:hover {
+      border-color: var(--card-hover-border);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+    .app-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .app-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.35s ease;
+    }
+    .app-card:hover .app-icon {
+      transform: scale(1.04);
+    }
+
+    .app-identity {
+      flex: 1;
+    }
+    .app-platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+    }
+    .badge-ios {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .badge-macos {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .app-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .app-tagline {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    .app-description {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Highlights bullets */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 1.75rem;
+    }
+    .feature-item {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .check-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .card-fc .check-icon { color: #f59e0b; }
+    .card-ub .check-icon { color: #3b82f6; }
+
+    /* Tags */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 2rem;
+      margin-top: auto;
+    }
+    .tech-pill {
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      color: #94a3b8;
+    }
+
+    /* Card Actions */
+    .card-actions {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      flex: 1;
+      min-width: 160px;
+      padding: 0.85rem 1.25rem;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-fc-primary {
+      background: var(--accent-fc-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      border: none;
+    }
+    .btn-fc-primary:hover {
+      box-shadow: 0 6px 22px rgba(245, 158, 11, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-ub-primary {
+      background: var(--accent-ub-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      border: none;
+    }
+    .btn-ub-primary:hover {
+      box-shadow: 0 6px 22px rgba(59, 130, 246, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Philosophy / Standards Section */
+    .standards-section {
+      background: rgba(18, 22, 34, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      padding: 2.75rem 2rem;
+      margin-bottom: 5rem;
+    }
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+    .standard-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .standard-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.25rem;
+    }
+    .standard-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+    .standard-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover {
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Ambient Glows -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow glow-3"></div>
+
+  <div class="container">
+    
+    <!-- Top Header -->
     <header>
-        <h1>Final-Countdown</h1>
+      <a href="./" class="brand">
+        <div class="avatar-symbol">RM</div>
+        <div>
+          <span class="brand-name">Roberto Martín</span>
+          <span class="brand-role">Apple Platforms Indie Developer</span>
+        </div>
+      </a>
+      
+      <div class="header-links">
+        <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener noreferrer" class="header-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub
+        </a>
+        <a href="mailto:rmartinl.appdev@gmail.com" class="header-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contacto
+        </a>
+      </div>
     </header>
-    <section>
-        <h2>About the App</h2>
-        <p>My app, <strong>Final-Countdown</strong>, is designed to help you count down to your favorite events with ease..</p>
-        <p>With an easy-to-use interface and innovative features, this app helps you organize and track every moment with personalized countdowns for multiple events..</p>
 
-        
+    <!-- Hero -->
+    <section class="hero">
+      <div class="pill-tag">
+        <span class="pulse-dot"></span>
+        <span>Swift 6 &bull; SwiftUI Nativo &bull; Cero Telemetría de Terceros</span>
+      </div>
 
-        <h2>Download Now</h2>
-        <p>You can download the app directly from the Apple Store by clicking the button below:</p>
-        <a class="button" href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank">Descargar en la Apple Store</a>
-    <p>If you have questions or comments, feel free to contact me at: <a href="mailto:rmartinl.appdev@gmail.com">rmartinl.appdev@gmail.com</a>.</p>
+      <h1 class="hero-title">
+        Software de Precisión para el <br>
+        <span class="gradient-text-hero">Ecosistema Apple</span>
+      </h1>
+
+      <p class="hero-desc">
+        Aplicaciones nativas independientes diseñadas con máxima atención al detalle, estética moderna, privacidad rigurosa y un rendimiento excepcional en iOS y macOS.
+      </p>
     </section>
+
+    <!-- Apps Showcase -->
+    <section class="apps-section">
+      <h2 class="section-title">Aplicaciones Destacadas</h2>
+
+      <div class="apps-grid">
+
+        <!-- APP 1: Final Countdown -->
+        <article class="app-card card-fc">
+          <div class="card-top">
+            <a href="FinalCountdown/index.html">
+              <img src="FinalCountdown/assets/icon.png" alt="Final Countdown Icon" class="app-icon">
+            </a>
+            <div class="app-identity">
+              <span class="app-platform-badge badge-ios">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path><path d="M12 6v6l4 2"></path></svg>
+                iOS 18+ &bull; iPhone &amp; iPad
+              </span>
+              <a href="FinalCountdown/index.html" style="text-decoration: none; color: inherit;">
+                <h3 class="app-title">Final Countdown</h3>
+              </a>
+              <p class="app-tagline">Seguimiento elegante de eventos y metas clave</p>
+            </div>
+          </div>
+
+          <p class="app-description">
+            Siente la emoción de cada momento. Cuenta atrás y seguimiento progresivo con deslumbrantes anillos visuales concéntricos, widgets interactivos para la Pantalla de Inicio y de Bloqueo, y sincronización instantánea con iCloud.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Anillos concéntricos y barras de progreso fluidas</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Widgets interactivos configurables en tiempo real</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>8 temas prémium exclusivos (Atardecer, Aurora, Neón...)</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Sincronización segura por iCloud y disponible en 6 idiomas</span>
+            </li>
+          </ul>
+
+          <div class="tag-cloud">
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">WidgetKit</span>
+            <span class="tech-pill">iCloud Sync</span>
+            <span class="tech-pill">Sub-second Precision</span>
+            <span class="tech-pill">Zero Tracking</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="FinalCountdown/index.html" class="btn btn-fc-primary" style="width: 100%;">
+              <span>Ver Final Countdown</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- APP 2: UtilityBox -->
+        <article class="app-card card-ub">
+          <div class="card-top">
+            <a href="UtilityBox/index.html">
+              <img src="UtilityBox/assets/app-icon.png" alt="UtilityBox Icon" class="app-icon">
+            </a>
+            <div class="app-identity">
+              <span class="app-platform-badge badge-macos">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                macOS Sonoma &amp; Sequoia
+              </span>
+              <a href="UtilityBox/index.html" style="text-decoration: none; color: inherit;">
+                <h3 class="app-title">UtilityBox</h3>
+              </a>
+              <p class="app-tagline">Navaja suiza de alto rendimiento para macOS</p>
+            </div>
+          </div>
+
+          <p class="app-description">
+            Suite modular nativa de herramientas profesionales para desarrolladores y administradores de sistemas. Diagnósticos de red de latencia mínima, telemetría de hardware, procesado multimedia y utilidades críticas sin dependencias externas.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>10 módulos activos (Scanner de red, Ping, Puertos, DNS, Speed Test...)</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Estricto App Sandbox con cero requerimiento de privilegios root</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Optimización binaria nativa para Apple Silicon (M1-M4) e Intel</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Gráficos nativos con Apple Swift Charts y concurrencia moderna</span>
+            </li>
+          </ul>
+
+          <div class="tag-cloud">
+            <span class="tech-pill">Swift 6</span>
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">Network Framework</span>
+            <span class="tech-pill">Apple Silicon</span>
+            <span class="tech-pill">App Sandbox</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="UtilityBox/index.html" class="btn btn-ub-primary" style="width: 100%;">
+              <span>Ver UtilityBox</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Principles / Trust Section -->
+    <section class="standards-section">
+      <div class="standards-grid">
+        <div class="standard-item">
+          <div class="standard-icon">⚡</div>
+          <h4 class="standard-title">100% Nativo Apple</h4>
+          <p class="standard-desc">Desarrollo puro en Swift y SwiftUI. Máxima eficiencia energética, integración fluida con macOS e iOS y cero consumo innecesario.</p>
+        </div>
+        <div class="standard-item">
+          <div class="standard-icon">🔒</div>
+          <h4 class="standard-title">Privacidad por Diseño</h4>
+          <p class="standard-desc">Tus datos te pertenecen. Sin rastreadores de terceros, sin telemetría publicitaria y con total respeto a las pautas de Apple.</p>
+        </div>
+        <div class="standard-item">
+          <div class="standard-icon">🎨</div>
+          <h4 class="standard-title">Experiencia Prémium</h4>
+          <p class="standard-desc">Interfaces elegantes con soporte para modo oscuro, tipografías refinadas, retroalimentación táctil y diseño centrado en el usuario.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div>
+          <p>&copy; 2026 Roberto Martín. Todos los derechos reservados.</p>
+          <p style="font-size: 0.8rem; margin-top: 0.25rem;">Desarrollador independiente de software para iOS y macOS.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="FinalCountdown/index.html" class="footer-link">Final Countdown</a>
+          <a href="UtilityBox/index.html" class="footer-link">UtilityBox</a>
+          <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="mailto:rmartinl.appdev@gmail.com" class="footer-link">Contacto</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
 </body>
 </html>
