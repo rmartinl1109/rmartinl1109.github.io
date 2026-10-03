@@ -14,8 +14,8 @@ Repositorio y servidor de despliegue para instaladores, actualizaciones de aplic
 
 | Recurso | Enlace de Descarga | Instrucciones de Instalación |
 | :--- | :--- | :--- |
-| **Instalación Inicial (Limpio)** | [geoCat_Vacio.zip](https://rmartinl1109.github.io/geoCat_Vacio.zip) | Crea la estructura base completa. Al descomprimirse en el disco `C:\`, genera automáticamente la carpeta `C:\geoCat`. |
-| **Actualización** | [geoCat_Act.zip](https://rmartinl1109.github.io/geoCat_Act.zip) | Actualización del sistema. Debe descomprimirse directamente dentro de la carpeta `C:\geoCat`. |
+| **Instalación Inicial (Limpio)** | [geoCat_Vacio.zip](https://rmartinl1109.github.io/GCS-Digicen/geoCat-pc/geoCat_Vacio.zip) | Crea la estructura base completa. Al descomprimirse en el disco `C:\`, genera automáticamente la carpeta `C:\geoCat`. |
+| **Actualización** | [geoCat_Act.zip](https://rmartinl1109.github.io/GCS-Digicen/geoCat-pc/geoCat_Act.zip) | Actualización del sistema. Debe descomprimirse directamente dentro de la carpeta `C:\geoCat`. |
 
 ---
 
@@ -23,11 +23,9 @@ Repositorio y servidor de despliegue para instaladores, actualizaciones de aplic
 
 Páginas de instalación Ad-Hoc / Enterprise vía Safari en iPad:
 
-- 🚀 **[Instalador geoCat 2](https://rmartinl1109.github.io/geoCat2.html)**  
-  Página principal de distribución de geoCat 2 (incluye la última versión y versión anterior).
-- 📦 **[geoCat 2 (Versión Anterior)](https://rmartinl1109.github.io/geoCat2_old.html)**  
-  Instalador directo de la versión anterior de geoCat 2.
-- 🏷️ **[Instalador geoCat v1](https://rmartinl1109.github.io/geoCat.html)**  
+- 🚀 **[Instalador geoCat 2](https://rmartinl1109.github.io/GCS-Digicen/geoCat-ipad/v2/geoCat2.html)**  
+  Página principal de distribución de geoCat 2 (incluye instaladores para la última versión y la versión anterior).
+- 🏷️ **[Instalador geoCat v1](https://rmartinl1109.github.io/GCS-Digicen/geoCat-ipad/v1/geoCat.html)**  
   Página de instalación para la primera versión de geoCat.
 
 > [!IMPORTANT]
@@ -41,10 +39,10 @@ Paquetes y actualizaciones para módulos de Catastro y gestión:
 
 | Módulo / Paquete | Enlace de Descarga | Descripción |
 | :--- | :--- | :--- |
-| **Actualización Gestión Expedientes** | [gestionExpedientesAct.zip](https://rmartinl1109.github.io/gestionExpedientesAct.zip) | Fichero de actualización para el sistema de expedientes. |
-| **CEM Expedientes** | [cemExpedientes.zip](https://rmartinl1109.github.io/cemExpedientes.zip) | Paquete del módulo `cemExpedientes`. |
-| **Actualización CEM GesCat** | [cemGesCatAct.zip](https://rmartinl1109.github.io/cemGesCatAct.zip) | Actualización de Gestión Catastral (`cemGesCatAct`). |
-| **Catastro Base** | [Catastro.zip](https://rmartinl1109.github.io/Catastro.zip) | Paquete y recursos de Catastro. |
+| **Actualización Gestión Expedientes** | [gestionExpedientesAct.zip](https://rmartinl1109.github.io/GCS-Digicen/gestionExpedientes/gestionExpedientesAct.zip) | Fichero de actualización para el sistema de expedientes. |
+| **CEM Expedientes** | [cemExpedientes.zip](https://rmartinl1109.github.io/CeM/cemExpedientes.zip) | Paquete del módulo `cemExpedientes`. |
+| **Actualización CEM GesCat** | [cemGesCatAct.zip](https://rmartinl1109.github.io/CeM/cemGesCatAct.zip) | Actualización de Gestión Catastral (`cemGesCatAct`). |
+| **Catastro Base** | [Catastro.zip](https://rmartinl1109.github.io/software/Catastro.zip) | Paquete y recursos de Catastro. |
 
 ---
 
