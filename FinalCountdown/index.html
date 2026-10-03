@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Countdown — Elegant Event & Milestone Countdown for iOS</title>
+  <meta name="description" content="Never miss what matters most. Final Countdown is the premier native iOS 18 app for tracking vacations, birthdays, goals, and milestones with concentric rings, interactive widgets, and instant iCloud sync.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Final Countdown — Track Life's Greatest Milestones in Style">
+  <meta property="og:description" content="Sub-second precision, concentric circular rings, linear progress bars, iOS 18 widgets, and zero tracking.">
+  <meta property="og:image" content="assets/icon.png">
+  <meta property="og:url" content="https://apps.apple.com/us/app/final-countdown/id6738668465">
+  <meta property="og:type" content="website">
+
+  <!-- Apple Smart App Banner (Native Safari Promotion) -->
+  <meta name="apple-itunes-app" content="app-id=6738668465">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            },
+            accent: {
+              500: '#6366f1',
+              600: '#4f46e5',
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Inter"', 'system-ui', 'sans-serif'],
+            mono: ['"SF Mono"', 'Menlo', 'Monaco', 'Courier New', 'monospace']
+          },
+          boxShadow: {
+            'glow-amber': '0 0 35px -5px rgba(245, 158, 11, 0.3)',
+            'glow-indigo': '0 0 35px -5px rgba(99, 102, 241, 0.35)',
+            'phone': '0 25px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    @keyframes subtlePulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.02); opacity: 0.95; }
+    }
+    @keyframes floatPhone {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .floating-device {
+      animation: floatPhone 6s ease-in-out infinite;
+    }
+    .tabular-numbers {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Hide scrollbars for clean phone mockup */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="h-full bg-slate-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/85 dark:bg-zinc-950/85 border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center space-x-3.5 group">
+        <div class="relative w-11 h-11 rounded-2xl overflow-hidden shadow-md shadow-brand-500/25 ring-1 ring-black/5 dark:ring-white/10 group-hover:scale-105 transition transform">
+          <img src="assets/icon.png" alt="Final Countdown App Icon" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-extrabold text-lg sm:text-xl tracking-tight text-zinc-950 dark:text-white">Final Countdown</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border border-amber-300/40">v2.26.1003</span>
+          </div>
+          <span class="block text-xs font-medium text-zinc-500 dark:text-zinc-400">Timeless Milestones & Widgets</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+        <a href="#features" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Features</a>
+        <a href="#demo" class="hover:text-brand-600 dark:hover:text-brand-400 transition flex items-center space-x-1.5">
+          <span>Live Demo</span>
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+          </span>
+        </a>
+        <a href="#widgets" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Widgets</a>
+        <a href="#themes" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Themes</a>
+        <a href="#pricing" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Pro Upgrade</a>
+        <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400 transition">FAQ</a>
+      </nav>
+
+      <!-- Right Controls & CTA -->
+      <div class="flex items-center space-x-3">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition" title="Toggle Dark/Light Mode">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-zinc-700"></i>
+        </button>
+
+        <!-- Primary Download CTA Button -->
+        <a href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-xs sm:text-sm font-semibold shadow-md shadow-amber-500/25 transition transform hover:-translate-y-0.5 active:translate-y-0">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.63-2.67 1.39-.56.65-.99 1.74-.86 2.79 1.03.08 2.06-.54 2.59-1.25z"/>
+          </svg>
+          <span>Get on App Store</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32">
+    <!-- Ambient Background Gradients -->
+    <div class="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-amber-500/20 via-orange-500/15 to-indigo-500/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute bottom-10 right-10 w-[500px] h-[400px] bg-gradient-to-br from-indigo-500/15 to-purple-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left: Copy & Actions -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Release Badge -->
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/50 border border-amber-200/80 dark:border-amber-800/60 text-amber-800 dark:text-amber-300 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            <span>✨ Major Release v2.26.1003 • Built for iOS 18 & WidgetKit</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-zinc-950 dark:text-white leading-[1.12]">
+            Every milestone deserves a <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500">grand countdown.</span>
+          </h1>
+
+          <!-- Hero Subtitle -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            Track dream vacations, birthdays, goals, and life achievements with sub-second precision. Mesmerizing concentric rings, linear progress, lock screen widgets, and effortless iCloud sync across all your Apple devices.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            
+            <!-- App Store Button -->
+            <a href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-semibold text-sm flex items-center justify-center space-x-3 shadow-xl transition transform hover:-translate-y-0.5">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.63-2.67 1.39-.56.65-.99 1.74-.86 2.79 1.03.08 2.06-.54 2.59-1.25z"/>
+              </svg>
+              <div class="text-left leading-tight">
+                <span class="block text-[10px] uppercase tracking-wider opacity-75 font-medium">Download on the</span>
+                <span class="block text-sm font-bold">App Store</span>
+              </div>
+            </a>
+
+            <!-- Interactive Demo Button -->
+            <a href="#demo" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold text-sm flex items-center justify-center space-x-2.5 border border-zinc-200 dark:border-zinc-800 shadow-sm transition">
+              <i data-lucide="play" class="w-4 h-4 text-amber-500 fill-amber-500"></i>
+              <span>Try In-Browser Simulator</span>
+            </a>
+
+          </div>
+
+          <!-- Feature Bullets / Social Proof -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-6 text-xs text-zinc-500 dark:text-zinc-400 font-medium">
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+              <span>Zero Tracking & Ads</span>
+            </div>
+            <span>•</span>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="cloud" class="w-4 h-4 text-sky-500"></i>
+              <span>iCloud Sync Ready</span>
+            </div>
+            <span>•</span>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-amber-500"></i>
+              <span>Lock & Home Widgets</span>
+            </div>
+            <span>•</span>
+            <div class="flex items-center space-x-1.5">
+              <i data-lucide="languages" class="w-4 h-4 text-purple-500"></i>
+              <span>5 Languages</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Floating Device Mockup -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-[320px] sm:w-[340px] h-[670px] rounded-[52px] bg-zinc-950 p-3 shadow-phone border-[5px] border-zinc-800 dark:border-zinc-700 floating-device select-none">
+            
+            <!-- Dynamic Island -->
+            <div class="absolute left-1/2 -translate-x-1/2 top-4 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-3">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+              <div class="flex items-center space-x-1 text-[9px] text-amber-400 font-mono">
+                <i data-lucide="hourglass" class="w-2.5 h-2.5"></i>
+                <span id="hero-mini-timer">14d</span>
+              </div>
+            </div>
+
+            <!-- Screen Viewport -->
+            <div class="w-full h-full rounded-[42px] overflow-hidden bg-gradient-to-b from-zinc-900 via-zinc-950 to-black text-white p-5 pt-12 flex flex-col justify-between border border-zinc-800/80 relative">
+              
+              <!-- Top Bar Info -->
+              <div class="flex items-center justify-between text-xs text-zinc-400 pt-1">
+                <div class="flex items-center space-x-1.5">
+                  <span class="text-base">✈️</span>
+                  <span class="font-bold text-white text-sm">Tokyo Vacation</span>
+                </div>
+                <span class="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 text-[10px] font-semibold border border-blue-500/30">Travel</span>
+              </div>
+
+              <!-- Concentric Rings Hero Graphic -->
+              <div class="relative my-auto flex flex-col items-center justify-center">
+                <svg class="w-56 h-56 transform -rotate-90" viewBox="0 0 200 200">
+                  <!-- Ring 1: Months / Years -->
+                  <circle cx="100" cy="100" r="85" stroke="#27272a" stroke-width="8" fill="transparent" />
+                  <circle cx="100" cy="100" r="85" stroke="url(#heroGrad1)" stroke-width="8" stroke-linecap="round" fill="transparent" stroke-dasharray="534" stroke-dashoffset="180" />
+                  
+                  <!-- Ring 2: Days -->
+                  <circle cx="100" cy="100" r="70" stroke="#27272a" stroke-width="8" fill="transparent" />
+                  <circle cx="100" cy="100" r="70" stroke="url(#heroGrad2)" stroke-width="8" stroke-linecap="round" fill="transparent" stroke-dasharray="440" stroke-dashoffset="120" />
+                  
+                  <!-- Ring 3: Hours -->
+                  <circle cx="100" cy="100" r="55" stroke="#27272a" stroke-width="8" fill="transparent" />
+                  <circle cx="100" cy="100" r="55" stroke="url(#heroGrad3)" stroke-width="8" stroke-linecap="round" fill="transparent" stroke-dasharray="345" stroke-dashoffset="90" />
+
+                  <!-- Ring 4: Seconds Live -->
+                  <circle cx="100" cy="100" r="40" stroke="#27272a" stroke-width="7" fill="transparent" />
+                  <circle id="hero-sec-ring" cx="100" cy="100" r="40" stroke="#f59e0b" stroke-width="7" stroke-linecap="round" fill="transparent" stroke-dasharray="251" stroke-dashoffset="80" class="transition-all duration-1000" />
+
+                  <defs>
+                    <linearGradient id="heroGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f59e0b" />
+                      <stop offset="100%" stop-color="#ea580c" />
+                    </linearGradient>
+                    <linearGradient id="heroGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ec4899" />
+                      <stop offset="100%" stop-color="#f43f5e" />
+                    </linearGradient>
+                    <linearGradient id="heroGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#6366f1" />
+                      <stop offset="100%" stop-color="#8b5cf6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                <!-- Center Content -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                  <span id="hero-days-val" class="text-3xl font-black tracking-tight tabular-numbers text-white">42</span>
+                  <span class="text-[10px] uppercase font-bold tracking-widest text-zinc-400">Days Left</span>
+                </div>
+              </div>
+
+              <!-- Time Digits Breakdown -->
+              <div class="grid grid-cols-4 gap-2 text-center bg-zinc-900/80 backdrop-blur-md rounded-2xl p-2.5 border border-zinc-800">
+                <div>
+                  <span class="block text-sm font-bold tabular-numbers text-amber-400">01</span>
+                  <span class="text-[9px] uppercase text-zinc-400 font-medium">Mo</span>
+                </div>
+                <div>
+                  <span id="hero-hours-val" class="block text-sm font-bold tabular-numbers text-rose-400">11</span>
+                  <span class="text-[9px] uppercase text-zinc-400 font-medium">Hr</span>
+                </div>
+                <div>
+                  <span id="hero-mins-val" class="block text-sm font-bold tabular-numbers text-indigo-400">28</span>
+                  <span class="text-[9px] uppercase text-zinc-400 font-medium">Min</span>
+                </div>
+                <div>
+                  <span id="hero-secs-val" class="block text-sm font-bold tabular-numbers text-amber-500 animate-pulse">45</span>
+                  <span class="text-[9px] uppercase text-zinc-400 font-medium">Sec</span>
+                </div>
+              </div>
+
+              <!-- Bottom Bar & Button -->
+              <div class="pt-3">
+                <a href="#demo" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs flex items-center justify-center space-x-1.5 shadow-lg shadow-amber-500/20 transition">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                  <span>Interact with Simulator</span>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- Home Bar Indicator -->
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/40 rounded-full z-30"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Live Simulator Section -->
+  <section id="demo" class="py-20 lg:py-28 bg-white dark:bg-zinc-900/60 border-y border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-14">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-950/60 border border-brand-300 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-bold uppercase tracking-wider">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
+          <span>In-Browser Live Experience</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Test the app before you download
+        </h2>
+        <p class="text-base text-zinc-600 dark:text-zinc-400">
+          Switch view styles, swap themes, toggle Count-Up milestones, and feel the exact SwiftUI interface in your browser.
+        </p>
+      </div>
+
+      <!-- Simulator Layout: Left Controls + Center Phone + Right Features -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Column: Controls & Events Switcher -->
+        <div class="lg:col-span-4 space-y-6 order-2 lg:order-1">
+          
+          <!-- Event Selector Card -->
+          <div class="p-6 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
+              <span>Choose Demo Event</span>
+              <span class="text-[11px] font-normal text-brand-600 dark:text-brand-400">Real-time sync</span>
+            </h3>
+
+            <div id="event-selector-list" class="space-y-2">
+              <!-- Dynamically populated in app.js -->
+            </div>
+          </div>
+
+          <!-- View Mode & Theme Switcher -->
+          <div class="p-6 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              Display Visualization
+            </h3>
+            
+            <div class="grid grid-cols-2 gap-2 p-1 bg-zinc-200/70 dark:bg-zinc-800/80 rounded-2xl">
+              <button id="mode-rings-btn" class="py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-1.5 transition bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white shadow-sm">
+                <i data-lucide="disc" class="w-4 h-4 text-amber-500"></i>
+                <span>Circular Rings</span>
+              </button>
+              <button id="mode-lines-btn" class="py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center space-x-1.5 transition text-zinc-600 dark:text-zinc-400 hover:text-zinc-900">
+                <i data-lucide="align-left" class="w-4 h-4 text-indigo-500"></i>
+                <span>Linear Bars</span>
+              </button>
+            </div>
+
+            <!-- Theme Palette Swatches -->
+            <div class="pt-2">
+              <span class="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-2">Color Palette Theme:</span>
+              <div id="theme-swatches" class="flex flex-wrap gap-2">
+                <!-- Injected via app.js -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Center Column: iPhone 16 Pro Interactive Mockup -->
+        <div class="lg:col-span-4 flex justify-center order-1 lg:order-2">
+          <div class="relative w-[330px] sm:w-[350px] h-[680px] rounded-[50px] bg-black p-3.5 shadow-2xl border-[6px] border-zinc-800 dark:border-zinc-700 select-none">
+            
+            <!-- Dynamic Island Interactive -->
+            <div id="sim-dynamic-island" class="absolute left-1/2 -translate-x-1/2 top-4 w-28 h-6 bg-black rounded-full z-40 flex items-center justify-between px-3 cursor-pointer hover:w-36 transition-all duration-300 border border-zinc-900">
+              <span id="island-icon" class="text-[11px]">✈️</span>
+              <span id="island-text" class="text-[10px] text-amber-400 font-mono font-bold tabular-numbers">--d --h</span>
+            </div>
+
+            <!-- Mockup Inner Screen -->
+            <div id="phone-screen" class="w-full h-full rounded-[40px] overflow-hidden bg-zinc-950 text-white flex flex-col justify-between border border-zinc-800 relative transition-colors duration-500">
+              
+              <!-- Screen Viewport Container (Rendered via JS) -->
+              <div id="demo-viewport" class="w-full h-full flex flex-col pt-10 pb-4 px-4 overflow-y-auto no-scrollbar">
+                <!-- Content will be injected by renderPhoneSimulator() in app.js -->
+              </div>
+
+              <!-- In-App Floating Tab Bar -->
+              <div class="px-6 pb-4 pt-1 bg-gradient-to-t from-zinc-950 via-zinc-950/90 to-transparent">
+                <div class="grid grid-cols-4 gap-1 p-1 rounded-2xl bg-zinc-900/90 border border-zinc-800/80 backdrop-blur-md">
+                  <button id="tab-list" class="py-2 flex flex-col items-center justify-center text-amber-400 transition" title="Events List">
+                    <i data-lucide="list" class="w-4 h-4"></i>
+                    <span class="text-[9px] mt-0.5 font-bold">List</span>
+                  </button>
+                  <button id="tab-detail" class="py-2 flex flex-col items-center justify-center text-zinc-400 hover:text-white transition" title="Hero Detail">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    <span class="text-[9px] mt-0.5 font-medium">Hero</span>
+                  </button>
+                  <button id="tab-add" class="py-2 flex flex-col items-center justify-center text-zinc-400 hover:text-white transition" title="Add Event">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    <span class="text-[9px] mt-0.5 font-medium">New</span>
+                  </button>
+                  <button id="tab-widget" class="py-2 flex flex-col items-center justify-center text-zinc-400 hover:text-white transition" title="Widgets View">
+                    <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                    <span class="text-[9px] mt-0.5 font-medium">Widget</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Home Bar Indicator -->
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/40 rounded-full z-30"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Highlights & Share Card Preview -->
+        <div class="lg:col-span-4 space-y-6 order-3">
+          
+          <!-- Share Card Generator Preview -->
+          <div class="p-6 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                Shareable Milestones
+              </h3>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-pink-100 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400">Instagram Ready</span>
+            </div>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400">
+              Generate breathtaking story cards with one tap to share with friends, family, or social followers.
+            </p>
+            <div id="share-card-preview" class="p-4 rounded-2xl bg-gradient-to-br from-amber-500 to-rose-600 text-white shadow-lg space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-wider opacity-85">Final Countdown</span>
+                <span class="text-base">✈️</span>
+              </div>
+              <h4 id="share-card-title" class="text-lg font-black leading-tight">Summer Vacation</h4>
+              <p id="share-card-date" class="text-xs opacity-90">July 15, 2026</p>
+              <div class="pt-2 flex items-baseline space-x-1 text-2xl font-black tabular-numbers">
+                <span id="share-card-days">42</span>
+                <span class="text-xs font-medium uppercase opacity-75">Days Remaining</span>
+              </div>
+            </div>
+            <button id="trigger-confetti-btn" class="w-full py-2.5 rounded-xl bg-zinc-900 dark:bg-zinc-800 hover:bg-zinc-800 text-white text-xs font-bold flex items-center justify-center space-x-2 transition">
+              <i data-lucide="party-popper" class="w-4 h-4 text-amber-400"></i>
+              <span>Celebrate Now (Confetti!)</span>
+            </button>
+          </div>
+
+          <!-- Quick Tip Card -->
+          <div class="p-6 rounded-3xl bg-amber-500/10 border border-amber-500/20 text-zinc-900 dark:text-zinc-100 space-y-2">
+            <div class="flex items-center space-x-2 text-amber-600 dark:text-amber-400 font-bold text-sm">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              <span>Sub-Second Precision Engine</span>
+            </div>
+            <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+              Every ring and bar dynamically scales using real date calculations with zero drift. Built with native Swift DateComponents.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Widgets Showcase Section -->
+  <section id="widgets" class="py-20 lg:py-28 bg-slate-50 dark:bg-zinc-950 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/60 border border-indigo-300 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-wider">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span>Native WidgetKit Architecture</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Keep your moments always in sight
+        </h2>
+        <p class="text-base text-zinc-600 dark:text-zinc-400">
+          From compact Lock Screen complications to rich Home Screen widgets, StandBy mode, and iOS 18 Control Center integration.
+        </p>
+      </div>
+
+      <!-- Widget Families Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Widget 1: Lock Screen Circular & Inline -->
+        <div class="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Lock Screen & Watch</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Accessory</span>
+          </div>
+
+          <!-- Lock Screen Mockup Container -->
+          <div class="h-44 rounded-2xl bg-zinc-950 p-4 flex flex-col justify-center items-center text-white border border-zinc-800 relative overflow-hidden">
+            <div class="text-[11px] font-mono text-zinc-400 mb-2">9:41 • Wednesday, Oct 3</div>
+            <!-- Accessory Complication -->
+            <div class="flex items-center space-x-4">
+              <!-- Accessory Circular -->
+              <div class="w-14 h-14 rounded-full border-2 border-amber-400/80 flex flex-col items-center justify-center p-1 relative">
+                <span class="text-xs">✈️</span>
+                <span class="text-[11px] font-black tabular-numbers text-amber-300">42d</span>
+              </div>
+              <!-- Accessory Rectangular -->
+              <div class="p-2 rounded-xl bg-zinc-900 border border-zinc-800 w-36 text-left">
+                <div class="text-[11px] font-bold truncate">Tokyo Trip</div>
+                <div class="text-[10px] text-zinc-400">42 days remaining</div>
+                <div class="w-full bg-zinc-800 h-1.5 rounded-full mt-1 overflow-hidden">
+                  <div class="bg-amber-400 h-full w-2/3 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="font-bold text-base text-zinc-900 dark:text-white">Glanceable Lock Screen Complications</h3>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Support for <code class="text-amber-600 dark:text-amber-400 font-mono">accessoryCircular</code>, <code class="text-amber-600 dark:text-amber-400 font-mono">accessoryInline</code>, and <code class="text-amber-600 dark:text-amber-400 font-mono">accessoryRectangular</code> to view time without unlocking your iPhone.
+          </p>
+        </div>
+
+        <!-- Widget 2: Home Screen Small -->
+        <div class="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Home Screen</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">SystemSmall</span>
+          </div>
+
+          <!-- Small Widget Mockup -->
+          <div class="h-44 rounded-2xl bg-zinc-950 p-4 flex items-center justify-center border border-zinc-800">
+            <div class="w-36 h-36 rounded-3xl bg-gradient-to-tr from-zinc-900 to-zinc-950 border border-zinc-800 p-3.5 flex flex-col justify-between shadow-xl">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-base">🚀</span>
+                <span class="text-[10px] font-bold text-rose-400 uppercase">Work</span>
+              </div>
+              <div class="text-center">
+                <span class="text-2xl font-black tabular-numbers text-white">12</span>
+                <span class="block text-[9px] uppercase tracking-wider text-zinc-400 font-bold">Days Left</span>
+              </div>
+              <div class="text-[10px] font-semibold text-zinc-300 truncate">Product Launch</div>
+            </div>
+          </div>
+
+          <h3 class="font-bold text-base text-zinc-900 dark:text-white">Square Focus Widget (systemSmall)</h3>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            A bold, focused square widget for your hero target. Updates seamlessly using App Groups and background tasks with low battery impact.
+          </p>
+        </div>
+
+        <!-- Widget 3: Home Screen Medium -->
+        <div class="p-7 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-lg transition space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Home & StandBy</span>
+            <span class="text-[11px] px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">SystemMedium</span>
+          </div>
+
+          <!-- Medium Widget Mockup -->
+          <div class="h-44 rounded-2xl bg-zinc-950 p-4 flex items-center justify-center border border-zinc-800">
+            <div class="w-72 h-32 rounded-3xl bg-zinc-900 border border-zinc-800 p-4 flex items-center justify-between shadow-xl">
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg">🌴</span>
+                  <span class="text-xs font-bold text-white">Hawaii Holiday</span>
+                </div>
+                <div class="text-xl font-black text-amber-400 tabular-numbers">88d 14h 22m</div>
+                <div class="text-[10px] text-zinc-400">November 26, 2026</div>
+              </div>
+              <!-- Mini Circular Ring -->
+              <div class="w-16 h-16 rounded-full border-4 border-amber-500/30 flex items-center justify-center relative">
+                <div class="absolute inset-0 rounded-full border-4 border-amber-400 border-t-transparent animate-spin" style="animation-duration: 12s;"></div>
+                <span class="text-[11px] font-bold text-white">74%</span>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="font-bold text-base text-zinc-900 dark:text-white">Expanded Banner (systemMedium)</h3>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Provides comprehensive event notes, full date breakdown, and a live progress ring. Perfectly tuned for iPhone StandBy nightstand mode.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Core Features Showcase -->
+  <section id="features" class="py-20 lg:py-28 bg-white dark:bg-zinc-900/60 border-y border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">
+          Uncompromised Craftsmanship
+        </h2>
+        <p class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Engineered for moments that matter
+        </p>
+        <p class="text-base text-zinc-600 dark:text-zinc-400">
+          Built exclusively with modern Apple native frameworks for blazing speed, zero battery strain, and absolute privacy.
+        </p>
+      </div>
+
+      <!-- Grid of 9 Core Features -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. Real-Time Precision -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-amber-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="timer" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Sub-Second Precision Engine
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Continuous real-time calculation covering years, months, days, hours, minutes, and seconds with zero clock drift or lag.
+          </p>
+        </div>
+
+        <!-- 2. Dual Visualization Modes -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-indigo-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Concentric Rings & Linear Bars
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Switch effortlessly between Apple Watch-style concentric radial rings (<code class="text-xs font-mono">CircularProgressBarView</code>) and clean linear progress lines.
+          </p>
+        </div>
+
+        <!-- 3. iCloud Cloud Sync -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-600 dark:text-sky-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="cloud" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Instant iCloud Sync
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Powered by Apple’s native <code class="text-xs font-mono">NSUbiquitousKeyValueStore</code>. Create a countdown on your iPhone, and find it instantly ready on your iPad and widgets.
+          </p>
+        </div>
+
+        <!-- 4. System Calendar Import -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-rose-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Apple Calendar Import (EventKit)
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Import birthdays, concerts, and flights from your iOS Calendar in one tap. Automatically detects event location and assigns matching emojis.
+          </p>
+        </div>
+
+        <!-- 5. Count-Up Mode -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-emerald-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Count-Up Milestone Streaks
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Track days elapsed since life-changing decisions: sobriety, quitting smoking, fitness streaks, or wedding anniversaries that never expire.
+          </p>
+        </div>
+
+        <!-- 6. Smart Recurrence & Snooze -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-purple-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="repeat" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Smart Recurrence & Reminders
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Repeat yearly for birthdays or monthly for recurring goals. Rich local notifications with interactive snooze actions right from the lock screen.
+          </p>
+        </div>
+
+        <!-- 7. Privacy First -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-teal-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="lock" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            100% Privacy • Zero Tracking
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            No accounts required. No third-party analytics SDKs, advertising IDs, or external servers. Your personal memories remain strictly yours.
+          </p>
+        </div>
+
+        <!-- 8. Multi-Language i18n -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-blue-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="globe-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            5 Full Languages Supported
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Complete native localizations in English, Spanish (Español), French (Français), German (Deutsch), and Simplified Chinese (简体中文).
+          </p>
+        </div>
+
+        <!-- 9. Shareable Story Cards -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-pink-500/40 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="share-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Share Cards for Stories
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Instantly export high-resolution celebration cards formatted for Instagram Stories, WhatsApp, and Messages with dynamic color grading.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Themes & Customization Section -->
+  <section id="themes" class="py-20 lg:py-28 bg-slate-50 dark:bg-zinc-950 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <span class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">Aesthetic Freedom</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          8 Handcrafted Color Palettes
+        </h2>
+        <p class="text-base text-zinc-600 dark:text-zinc-400">
+          Match your countdowns to the spirit of the event: warm sunsets, cyber neon, tranquil forests, and deep midnight tones.
+        </p>
+      </div>
+
+      <!-- Themes Grid Showcase -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- Sunset -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#ff5a5e] via-[#ff9933] to-[#f2408c] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Sunset</h4>
+            <span class="text-[11px] text-zinc-500">Warm Coral & Gold</span>
+          </div>
+        </div>
+
+        <!-- Ocean -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#0d8cf2] via-[#00ccd9] to-[#1a59d9] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Ocean</h4>
+            <span class="text-[11px] text-zinc-500">Deep Azure & Teal</span>
+          </div>
+        </div>
+
+        <!-- Aurora -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#00d9a6] via-[#2699f2] to-[#8c4de6] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Aurora</h4>
+            <span class="text-[11px] text-zinc-500">Emerald & Violet</span>
+          </div>
+        </div>
+
+        <!-- Neon -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#f226b3] via-[#a633fa] to-[#5940f2] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Neon</h4>
+            <span class="text-[11px] text-zinc-500">Cyber Magenta</span>
+          </div>
+        </div>
+
+        <!-- Ember -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#f24026] via-[#ff8c00] to-[#fac726] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Ember</h4>
+            <span class="text-[11px] text-zinc-500">Vibrant Flame</span>
+          </div>
+        </div>
+
+        <!-- Lavender -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#a680fa] via-[#cca6ff] to-[#73b3fa] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Lavender</h4>
+            <span class="text-[11px] text-zinc-500">Pastel Lilac</span>
+          </div>
+        </div>
+
+        <!-- Midnight -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#1f264d] via-[#403380] to-[#1a6699] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Midnight</h4>
+            <span class="text-[11px] text-zinc-500">OLED Dark Sky</span>
+          </div>
+        </div>
+
+        <!-- Forest -->
+        <div class="p-5 rounded-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-center space-y-3 shadow-sm hover:scale-105 transition transform">
+          <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-[#1aa673] via-[#4dcc80] to-[#0d7359] shadow-md"></div>
+          <div>
+            <h4 class="font-bold text-sm text-zinc-900 dark:text-white">Forest</h4>
+            <span class="text-[11px] text-zinc-500">Nordic Pine</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- App Appearance Banner -->
+      <div class="mt-12 p-8 rounded-3xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="sun-moon" class="w-3.5 h-3.5"></i>
+            <span>Global App Appearance</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-zinc-950 dark:text-white">
+            Light, Dark & System Automatic
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl">
+            Choose your preferred interface theme anytime in Settings. Whether you prefer crisp daytime clarity, true OLED black contrast, or following your iOS schedule.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 bg-white dark:bg-zinc-800/80 p-2 rounded-2xl border border-zinc-200 dark:border-zinc-700 shadow-sm shrink-0">
+          <span class="flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-zinc-100 dark:bg-zinc-700 text-zinc-900 dark:text-white">
+            <i data-lucide="laptop" class="w-4 h-4"></i>
+            <span>System</span>
+          </span>
+          <span class="flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-zinc-600 dark:text-zinc-300">
+            <i data-lucide="sun" class="w-4 h-4 text-amber-500"></i>
+            <span>Light</span>
+          </span>
+          <span class="flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-zinc-600 dark:text-zinc-300">
+            <i data-lucide="moon" class="w-4 h-4 text-indigo-400"></i>
+            <span>Dark</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Fair Pricing & Pro Upgrade Section -->
+  <section id="pricing" class="py-20 lg:py-28 bg-white dark:bg-zinc-900/60 border-y border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <span class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">Ethical Monetization</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Honest, simple pricing. No ads ever.
+        </h2>
+        <p class="text-base text-zinc-600 dark:text-zinc-400">
+          Enjoy core features for free, or unlock the full potential of Final Countdown PRO via StoreKit 2.
+        </p>
+      </div>
+
+      <!-- Pricing Comparison Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+        
+        <!-- Free Tier Card -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-between space-y-8">
+          <div class="space-y-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-zinc-500">Free Tier</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-extrabold text-zinc-950 dark:text-white">$0</span>
+              <span class="text-xs text-zinc-500">Forever free</span>
+            </div>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400">
+              Ideal for tracking key milestones with zero spam or privacy compromises.
+            </p>
+
+            <ul class="space-y-3 text-xs text-zinc-700 dark:text-zinc-300 pt-2">
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                <span>Up to 3 simultaneous active countdowns</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                <span>Circular rings & linear progress visualizations</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                <span>Home and Lock Screen widget support</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                <span>Local notifications and Calendar import</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i>
+                <span>100% Ad-free experience</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-2xl bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white font-bold text-xs text-center transition flex items-center justify-center space-x-1.5">
+            <span>Download Free on App Store</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Pro Tier Card (Featured) -->
+        <div class="relative p-8 rounded-3xl bg-gradient-to-b from-zinc-900 to-black text-white border-2 border-amber-500/80 shadow-2xl flex flex-col justify-between space-y-8">
+          <!-- Top Badge -->
+          <div class="absolute -top-3.5 right-8 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-bold uppercase tracking-wider shadow-md">
+            Best Experience
+          </div>
+
+          <div class="space-y-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Final Countdown PRO</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-black text-white">In-App</span>
+              <span class="text-xs text-zinc-400">One-time / Fair upgrade</span>
+            </div>
+            <p class="text-xs text-zinc-400">
+              Unlock unlimited possibilities for event planners, travelers, and milestone celebrators.
+            </p>
+
+            <ul class="space-y-3 text-xs text-zinc-200 pt-2">
+              <li class="flex items-center space-x-2.5 font-semibold text-white">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                <span>Unlimited concurrent countdowns</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                <span>Access to all 8 Designer Color Themes</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                <span>Unlimited interactive widgets for all screens</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                <span>Automatic iCloud Sync across unlimited devices</span>
+              </li>
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0"></i>
+                <span>Family Sharing support included</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold text-xs text-center shadow-lg shadow-amber-500/25 transition flex items-center justify-center space-x-1.5">
+            <span>Unlock PRO on App Store</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 lg:py-28 bg-slate-50 dark:bg-zinc-950 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-3 mb-16">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">Support & FAQ</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Frequently Asked Questions
+        </p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="space-y-4">
+        
+        <!-- Q1 -->
+        <div class="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 transition">
+          <button class="w-full flex justify-between items-center text-left font-bold text-sm sm:text-base text-zinc-900 dark:text-white faq-toggle">
+            <span>Does Final Countdown require an account or registration?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transform transition-transform"></i>
+          </button>
+          <div class="mt-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed hidden faq-answer">
+            No! Final Countdown does not require any account, username, email, or password. All data is stored privately on your device and synced securely through your personal Apple iCloud account via <code class="font-mono text-xs">NSUbiquitousKeyValueStore</code>.
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 transition">
+          <button class="w-full flex justify-between items-center text-left font-bold text-sm sm:text-base text-zinc-900 dark:text-white faq-toggle">
+            <span>How does iCloud sync work between iPhone and iPad?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transform transition-transform"></i>
+          </button>
+          <div class="mt-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed hidden faq-answer">
+            Syncing happens completely in the background without needing manual exports. As long as your devices are signed in with the same Apple ID and have iCloud enabled, events created or edited on one device will automatically reflect on your other devices.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 transition">
+          <button class="w-full flex justify-between items-center text-left font-bold text-sm sm:text-base text-zinc-900 dark:text-white faq-toggle">
+            <span>What is Count-Up mode and how is it used?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transform transition-transform"></i>
+          </button>
+          <div class="mt-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed hidden faq-answer">
+            While regular countdowns measure the time remaining until a future date, Count-Up mode tracks time elapsed since a past date. It is perfect for celebrating milestone streaks: days smoke-free, days of sobriety, fitness journeys, wedding anniversaries, or your baby’s age in days.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 transition">
+          <button class="w-full flex justify-between items-center text-left font-bold text-sm sm:text-base text-zinc-900 dark:text-white faq-toggle">
+            <span>Can I import events directly from my Apple Calendar?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transform transition-transform"></i>
+          </button>
+          <div class="mt-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed hidden faq-answer">
+            Yes! Final Countdown integrates with Apple's native <code class="font-mono text-xs">EventKit</code>. With your permission, you can browse upcoming events and birthdays from your system calendars and import them with a single tap, with automatic emoji and category suggestions.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-5 transition">
+          <button class="w-full flex justify-between items-center text-left font-bold text-sm sm:text-base text-zinc-900 dark:text-white faq-toggle">
+            <span>Are widgets compatible with iOS 18 Lock Screen and StandBy?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400 transform transition-transform"></i>
+          </button>
+          <div class="mt-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed hidden faq-answer">
+            Yes, fully compatible! Final Countdown includes widgets designed specifically for Home Screen (<code class="font-mono text-xs">systemSmall</code>, <code class="font-mono text-xs">systemMedium</code>, <code class="font-mono text-xs">systemLarge</code>), Lock Screen (<code class="font-mono text-xs">accessoryCircular</code>, <code class="font-mono text-xs">accessoryInline</code>, <code class="font-mono text-xs">accessoryRectangular</code>), Control Center shortcuts, and StandBy mode.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA Banner -->
+  <section id="download" class="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white border-t border-zinc-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+      
+      <!-- Icon Glow -->
+      <div class="w-20 h-20 mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/30 ring-2 ring-amber-500/40 transform hover:scale-105 transition">
+        <img src="assets/icon.png" alt="Final Countdown Icon" class="w-full h-full object-cover">
+      </div>
+
+      <div class="space-y-4 max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white">
+          Never miss what matters most.
+        </h2>
+        <p class="text-base text-zinc-400 leading-relaxed">
+          Download Final Countdown today for iPhone and iPad. Start anticipating your happiest moments with timeless precision.
+        </p>
+      </div>
+
+      <!-- App Store CTA Button -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <a href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl bg-white hover:bg-zinc-100 text-zinc-950 font-bold text-sm flex items-center space-x-3 shadow-2xl hover:scale-105 transition transform">
+          <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.63-2.67 1.39-.56.65-.99 1.74-.86 2.79 1.03.08 2.06-.54 2.59-1.25z"/>
+          </svg>
+          <div class="text-left leading-tight">
+            <span class="block text-[10px] uppercase tracking-wider opacity-75 font-semibold">Available on the</span>
+            <span class="block text-base font-black">App Store</span>
+          </div>
+        </a>
+
+        <a href="#demo" class="px-6 py-4 rounded-2xl bg-zinc-800/80 hover:bg-zinc-800 text-zinc-200 font-semibold text-sm border border-zinc-700 transition">
+          Launch Web Simulator
+        </a>
+      </div>
+
+      <!-- QR Code for fast mobile install on desktop -->
+      <div class="hidden sm:inline-flex items-center space-x-4 p-3 pr-5 rounded-2xl bg-zinc-900/90 border border-zinc-800/90 text-left backdrop-blur-md shadow-xl max-w-sm mx-auto">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Fapps.apple.com%2Fus%2Fapp%2Ffinal-countdown%2Fid6738668465&color=ffffff&bgcolor=18181b" alt="QR Code to App Store" class="w-16 h-16 rounded-xl border border-zinc-700 p-1 bg-zinc-900">
+        <div class="space-y-0.5">
+          <p class="text-xs font-bold text-white">Scan with iPhone Camera</p>
+          <p class="text-[11px] text-zinc-400">Instantly open Final Countdown on the App Store</p>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="pt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-500">
+        <span>🔒 Zero Data Collection</span>
+        <span>•</span>
+        <span>📱 iOS 18.2+ Optimized</span>
+        <span>•</span>
+        <span>⚡ 100% Native SwiftUI</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Logo and App Name -->
+        <div class="flex items-center space-x-3">
+          <img src="assets/icon.png" alt="Final Countdown" class="w-8 h-8 rounded-xl object-cover">
+          <div>
+            <span class="font-extrabold text-white text-sm">Final Countdown</span>
+            <span class="block text-[11px] text-zinc-500">Milestone & Event Tracker for iOS</span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="flex flex-wrap items-center justify-center gap-6 font-medium">
+          <a href="https://apps.apple.com/us/app/final-countdown/id6738668465" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center space-x-1 text-amber-400">
+            <span>App Store</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+          </a>
+          <a href="#features" class="hover:text-white transition">Features</a>
+          <a href="#demo" class="hover:text-white transition">Simulator</a>
+          <a href="#widgets" class="hover:text-white transition">Widgets</a>
+          <a href="#pricing" class="hover:text-white transition">Pricing</a>
+          <a href="#privacy-modal" id="open-privacy-link" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#terms-modal" id="open-terms-link" class="hover:text-white transition">Terms of Service</a>
+        </div>
+
+      </div>
+
+      <!-- Apple Legal & Copyright -->
+      <div class="pt-6 border-t border-zinc-900/80 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500 text-center md:text-left">
+        <p>© 2026 Final Countdown v2.26.1003 (Build 19). All rights reserved. Crafted with care for the Apple ecosystem.</p>
+        <p>Apple, iPhone, iPad, Apple Watch, WidgetKit, and iOS are registered trademarks of Apple Inc.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Privacy Policy Modal -->
+  <div id="privacy-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-zinc-900 max-w-xl w-full rounded-3xl p-6 sm:p-8 space-y-4 max-h-[85vh] overflow-y-auto border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xl">
+      <div class="flex justify-between items-center">
+        <h3 class="text-lg font-bold">Privacy Policy</h3>
+        <button id="close-privacy-btn" class="p-1 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="space-y-3 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300">
+        <p><strong>Your Privacy is Fundamental.</strong> Final Countdown is designed from the ground up to respect your personal privacy:</p>
+        <ul class="list-disc pl-4 space-y-1.5">
+          <li><strong>Zero Tracking:</strong> We do not track, collect, or transmit your personal data, events, or usage metrics to any third party.</li>
+          <li><strong>On-Device Storage:</strong> All event titles, notes, and dates are stored locally on your device using native Apple persistent frameworks.</li>
+          <li><strong>iCloud Sync:</strong> When enabled, event data syncs directly through Apple’s secure iCloud Key-Value store (<code class="font-mono">NSUbiquitousKeyValueStore</code>), encrypted and protected under your Apple ID.</li>
+          <li><strong>Calendar Access:</strong> If granted, calendar access is used strictly on-device via <code class="font-mono">EventKit</code> to import chosen events into your countdown list.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div id="terms-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-zinc-900 max-w-xl w-full rounded-3xl p-6 sm:p-8 space-y-4 max-h-[85vh] overflow-y-auto border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xl">
+      <div class="flex justify-between items-center">
+        <h3 class="text-lg font-bold">Terms of Service</h3>
+        <button id="close-terms-btn" class="p-1 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-400">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="space-y-3 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300">
+        <p>By downloading or using Final Countdown, you agree to Apple's standard End User License Agreement (EULA). Final Countdown is provided "as is" to help you organize milestones. In-app purchases are managed safely via Apple App Store StoreKit 2.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
