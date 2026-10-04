@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CountFlow — Universal Daily Counter & Tracker for iOS</title>
+  <meta name="description" content="Official website for CountFlow. Effortlessly manage multiple custom counters, log daily activities on a visual monthly calendar, and track your progress.">
+  
+  <link rel="icon" type="image/png" href="./app-icon.png">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            ios: {
+              blue: '#007AFF',
+              darkBg: '#09090b',
+              cardDark: '#141416'
+            }
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Inter"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .floating-card {
+      animation: float 5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="h-full bg-slate-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans transition-colors duration-300 selection:bg-brand-600 selection:text-white">
+
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/85 dark:bg-zinc-950/85 border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <img src="./app-icon.png" alt="CountFlow App Icon" class="w-10 h-10 rounded-2xl shadow-lg shadow-brand-500/25 group-hover:scale-105 transition object-cover">
+        <div>
+          <span class="font-extrabold text-lg tracking-tight text-zinc-900 dark:text-white">CountFlow</span>
+          <span class="block text-[11px] font-medium text-brand-600 dark:text-brand-400">Universal Daily Counter & Tracker</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+        <a href="#features" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Features</a>
+        <a href="#demo" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Live Demo</a>
+        <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400 transition">FAQ</a>
+      </nav>
+
+      <!-- Right Controls & CTA -->
+      <div class="flex items-center space-x-3">
+        
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition" title="Toggle Dark/Light Mode">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+        </button>
+
+        <!-- Primary Download CTA Button -->
+        <a href="#download" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold shadow-md shadow-brand-600/30 transition transform hover:-translate-y-0.5">
+          <i data-lucide="arrow-down-to-line" class="w-3.5 h-3.5"></i>
+          <span>Download App</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+    <!-- Background Glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-brand-500/20 to-indigo-500/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Copy & Actions -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Release Badge -->
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/60 text-brand-700 dark:text-brand-300 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+            <span>✨ Free Download · Up to 2 Free Counters · CountFlow Pro Upgrade</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-[1.15]">
+            Track any habit, count any goal,<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600">made effortless.</span>
+          </h1>
+
+          <!-- Hero Subtitle -->
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Log daily quantities, habits, workouts, and activities in seconds with large ergonomic controls. Start free with up to 2 active counters, or upgrade to <strong>CountFlow Pro</strong> for unlimited trackers and lifetime iCloud sync.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            
+            <!-- App Store Button -->
+            <a href="#download" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-semibold text-sm flex items-center justify-center space-x-3 shadow-xl transition transform hover:-translate-y-0.5">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.63-2.67 1.39-.56.65-.99 1.74-.86 2.79 1.03.08 2.06-.54 2.59-1.25z"/>
+              </svg>
+              <div class="text-left leading-tight">
+                <span class="block text-[10px] uppercase tracking-wider opacity-75 font-medium">Download on the</span>
+                <span class="block text-sm font-bold">App Store</span>
+              </div>
+            </a>
+
+            <!-- Live Demo Anchor -->
+            <a href="#demo" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold text-sm flex items-center justify-center space-x-2 border border-zinc-200 dark:border-zinc-800 transition">
+              <i data-lucide="play-circle" class="w-5 h-5 text-brand-600"></i>
+              <span>Try In-Browser Demo</span>
+            </a>
+
+          </div>
+
+          <!-- Social Proof & Ratings -->
+          <div class="pt-4 flex items-center justify-center lg:justify-start space-x-6 text-xs text-zinc-500 dark:text-zinc-400">
+            <div class="flex items-center space-x-1.5">
+              <div class="flex text-amber-400">★★★★★</div>
+              <span class="font-semibold text-zinc-800 dark:text-zinc-200">5.0 Star Rating</span>
+            </div>
+            <span>•</span>
+            <span>100% Offline & Private</span>
+            <span>•</span>
+            <span>6 Languages</span>
+          </div>
+
+        </div>
+
+        <!-- Right: Floating Device Mockup -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-[320px] h-[640px] rounded-[48px] bg-black shadow-2xl overflow-hidden border-[6px] border-zinc-800 dark:border-zinc-700 floating-card select-none">
+            
+            <!-- Dynamic Island -->
+            <div class="absolute left-1/2 -translate-x-1/2 top-3 w-28 h-6 bg-black rounded-full z-30 flex items-center justify-center">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+
+            <!-- In-Phone App Preview -->
+            <div class="w-full h-full pt-12 p-5 flex flex-col justify-between bg-gradient-to-b from-blue-700 via-indigo-900 to-zinc-950 text-white">
+              
+              <div class="space-y-3 mt-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <i data-lucide="calendar" class="w-4 h-4 text-blue-300"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider text-blue-200">October 2026</span>
+                  </div>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/30 font-semibold">Today</span>
+                </div>
+
+                <!-- Monthly Card Preview -->
+                <div class="p-3.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 space-y-2.5">
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-medium text-white/80">Monthly Summary</span>
+                    <span class="text-blue-300 font-bold">148 Counted</span>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+                    <div class="p-1.5 rounded-lg bg-white/5">
+                      <span class="block text-white/60">Days</span>
+                      <span class="font-bold text-sm">11</span>
+                    </div>
+                    <div class="p-1.5 rounded-lg bg-white/5">
+                      <span class="block text-white/60">Average</span>
+                      <span class="font-bold text-sm">13.5</span>
+                    </div>
+                    <div class="p-1.5 rounded-lg bg-white/5">
+                      <span class="block text-white/60">Record</span>
+                      <span class="font-bold text-sm text-yellow-300">18</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mini Calendar Mockup -->
+                <div class="p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+                  <div class="grid grid-cols-7 gap-1 text-[10px] text-center font-medium text-white/60 mb-2">
+                    <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+                  </div>
+                  <div class="grid grid-cols-7 gap-1 text-[10px] text-center font-bold">
+                    <span class="p-1 rounded bg-blue-500 text-white">1 • 14</span>
+                    <span class="p-1 rounded bg-blue-500/40">2 • 12</span>
+                    <span class="p-1 rounded bg-blue-500/40">3 • 15</span>
+                    <span class="p-1 rounded bg-yellow-400 text-zinc-950 font-extrabold">4 • 18</span>
+                    <span class="p-1 rounded bg-blue-500/40">5 • 14</span>
+                    <span class="p-1 rounded text-white/30">6 • —</span>
+                    <span class="p-1 rounded text-white/30">7 • —</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Button -->
+              <a href="#demo" class="w-full py-3 rounded-xl bg-white text-zinc-900 font-bold text-xs text-center shadow-lg hover:bg-zinc-100 transition">
+                <span>Try Live Interactive Demo</span>
+              </a>
+
+            </div>
+
+            <!-- Home Bar -->
+            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/50 rounded-full z-30"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Grid -->
+  <section id="features" class="py-20 bg-white dark:bg-zinc-900/60 border-y border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">
+          Core Capabilities
+        </h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Built for anything you want to count & track
+        </p>
+        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+          Fast, simple, and ultra-reliable for daily habits, fitness, study, work, or hobbies with zero friction.
+        </p>
+      </div>
+
+      <!-- Features Cards Grid -->
+      <div id="features-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Feature 1: 2x2 Square Grid -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            2x2 Square Counters Grid
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Beautiful, compact square cards (1:1 ratio) with instant +/- increment controls for today, color-coded icons, and month-to-date totals.
+          </p>
+        </div>
+
+        <!-- Feature 2: Settings & Appearance -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="sliders" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Settings & Dark Mode
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Tailor your experience with full Dark Mode, Light Mode, or System automatic theming, plus customizable haptic vibration feedback.
+          </p>
+        </div>
+
+        <!-- Feature 3: Visual Calendar -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Visual Monthly Calendar
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Glanceable monthly grid displaying completed activity badges right inside each day cell with smooth month-to-month browsing.
+          </p>
+        </div>
+
+        <!-- Feature 4: iCloud Sync & Offline -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="cloud" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            iCloud Sync & Offline Reliability
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Private, seamless background synchronization across all your Apple devices via SwiftData & CloudKit, with 100% offline local capability.
+          </p>
+        </div>
+
+        <!-- Feature 5: Multi-Language App Support -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="globe-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            6 Official App Languages
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Completely localized in English, Spanish, French, German, Portuguese, and Simplified Chinese with zero hardcoded strings.
+          </p>
+        </div>
+
+        <!-- Feature 6: Monthly Analytics & Goals -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-pink-500/10 text-pink-600 dark:text-pink-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Monthly Summary & Daily Goals
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Track your streak, best personal record, active days count, daily averages, and progress toward customizable daily goals.
+          </p>
+        </div>
+
+        <!-- Feature 7: Interactive Home & Lock Screen Widgets -->
+        <div class="p-8 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 hover:border-brand-500/50 transition-all hover:shadow-xl group">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-6 group-hover:scale-110 transition">
+            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white mb-2">
+            Interactive Widgets (Pro)
+          </h3>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Small, Medium, and Lock Screen widgets with direct + / - buttons. Choose exactly which counter to display on each widget and count with 1 tap.
+          </p>
+        </div>
+
+        <!-- Feature 8: Freemium & CountFlow Pro Upgrade -->
+        <div class="p-8 rounded-3xl bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent dark:bg-zinc-900 border border-amber-500/30 hover:border-amber-500 transition-all hover:shadow-xl group md:col-span-2 lg:col-span-3">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div class="flex items-center space-x-4">
+              <div class="w-14 h-14 rounded-2xl bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition">
+                <i data-lucide="crown" class="w-7 h-7"></i>
+              </div>
+              <div>
+                <div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-bold mb-1">
+                  <span>StoreKit 2 Integration</span>
+                </div>
+                <h3 class="text-xl font-extrabold text-zinc-900 dark:text-white">
+                  Freemium Starter & CountFlow Pro
+                </h3>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-1 max-w-2xl">
+                  Download 100% free with up to <strong>2 active counters</strong> forever. Unlock unlimited counters, interactive widgets, all premium categories, and future updates with a single, one-time lifetime In-App Purchase (`com.rmartinl1109.CountFlowPro`). No recurring subscriptions!
+                </p>
+              </div>
+            </div>
+            <div class="shrink-0 flex items-center">
+              <span class="px-4 py-2 rounded-xl bg-amber-500 text-white font-extrabold text-xs shadow-md shadow-amber-500/30 flex items-center space-x-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                <span>One-Time Purchase</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Live Demo Section -->
+  <section id="demo" class="py-20 bg-slate-100 dark:bg-zinc-950 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">
+          Live Interactive Simulator
+        </h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Test CountFlow right in your browser
+        </p>
+        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+          Click on calendar days, adjust activity counts with the live stepper, inspect real-time monthly summaries, or test the CountFlow Pro paywall.
+        </p>
+      </div>
+
+      <!-- Demo Container with Screen Switcher -->
+      <div class="max-w-4xl mx-auto flex flex-col items-center">
+        
+        <!-- Screen Selector Buttons -->
+        <div class="mb-8 flex flex-wrap justify-center gap-2 bg-white dark:bg-zinc-900 p-1.5 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+          <button data-screen="counters" class="demo-screen-tab px-4 py-2 rounded-xl text-xs font-semibold bg-brand-600 text-white shadow-sm transition">
+            <span>2x2 Counters Grid</span>
+          </button>
+          <button data-screen="calendar" class="demo-screen-tab px-4 py-2 rounded-xl text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition">
+            <span>Monthly Calendar</span>
+          </button>
+          <button data-screen="edit" class="demo-screen-tab px-4 py-2 rounded-xl text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition">
+            <span>Quick Day Stepper</span>
+          </button>
+          <button data-screen="settings" class="demo-screen-tab px-4 py-2 rounded-xl text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition">
+            <span>Settings & Themes</span>
+          </button>
+          <button data-screen="paywall" class="demo-screen-tab px-4 py-2 rounded-xl text-xs font-medium text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition flex items-center space-x-1">
+            <span>👑 Pro Paywall</span>
+          </button>
+        </div>
+
+        <!-- Phone Simulator Mockup -->
+        <div class="w-[340px] h-[690px] rounded-[50px] bg-black shadow-2xl overflow-hidden border-[6px] border-zinc-800 relative flex flex-col select-none">
+          
+          <!-- iOS Status Bar & Dynamic Island -->
+          <div class="pt-3 pb-2 px-6 flex items-center justify-between text-white text-xs font-semibold z-20">
+            <span id="demo-clock">09:41</span>
+            <div class="w-24 h-6 bg-black rounded-full border border-zinc-900 flex items-center justify-center">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+              <i data-lucide="battery" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Dynamic Viewport -->
+          <div id="demo-viewport" class="flex-1 bg-zinc-100 dark:bg-zinc-900 p-4 flex flex-col justify-between overflow-y-auto">
+            <!-- Dynamic interactive views injected by app.js -->
+          </div>
+
+          <!-- Home Indicator -->
+          <div class="py-2 flex justify-center bg-transparent z-20">
+            <div class="w-32 h-1 bg-zinc-500 rounded-full"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white dark:bg-zinc-900/60 border-t border-zinc-200 dark:border-zinc-800 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center space-y-3 mb-12">
+        <h2 class="text-xs uppercase font-bold tracking-widest text-brand-600 dark:text-brand-400">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
+          Everything you need to know
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faq-accordion">
+        
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 cursor-pointer hover:border-brand-500/50 transition">
+          <div class="flex justify-between items-center font-bold text-sm text-zinc-900 dark:text-white">
+            <span>Is CountFlow free? How does the Pro upgrade work?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400"></i>
+          </div>
+          <p class="mt-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            CountFlow is completely free to download and comes with up to <strong>2 active counters</strong> forever with all core tracking and calendar tools included. When you want to track more activities, a single, one-time lifetime In-App Purchase (<strong>CountFlow Pro</strong>) unlocks unlimited counters, all categories, and future updates with no recurring subscription fees.
+          </p>
+        </div>
+
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 cursor-pointer hover:border-brand-500/50 transition">
+          <div class="flex justify-between items-center font-bold text-sm text-zinc-900 dark:text-white">
+            <span>Does CountFlow work without internet connection?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400"></i>
+          </div>
+          <p class="mt-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Yes, completely. All records are persisted locally on your device via Apple's native SwiftData framework. It works reliably on flights, underground subways, remote trails, or gyms with zero signal.
+          </p>
+        </div>
+
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 cursor-pointer hover:border-brand-500/50 transition">
+          <div class="flex justify-between items-center font-bold text-sm text-zinc-900 dark:text-white">
+            <span>Can I change counts for past or future days?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400"></i>
+          </div>
+          <p class="mt-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Yes! Just tap on any day in the monthly calendar to open the quick editor. You can update the count, increment or decrement it, or clear the day at any time.
+          </p>
+        </div>
+
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 cursor-pointer hover:border-brand-500/50 transition">
+          <div class="flex justify-between items-center font-bold text-sm text-zinc-900 dark:text-white">
+            <span>Which languages are supported?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400"></i>
+          </div>
+          <p class="mt-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            CountFlow is natively localized in 6 languages: English, Spanish, French, German, Portuguese, and Simplified Chinese. It automatically matches your device language.
+          </p>
+        </div>
+
+        <div class="bg-zinc-50 dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 cursor-pointer hover:border-brand-500/50 transition">
+          <div class="flex justify-between items-center font-bold text-sm text-zinc-900 dark:text-white">
+            <span>What iOS version do I need?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-400"></i>
+          </div>
+          <p class="mt-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            CountFlow is engineered for iOS 17.0 and later, utilizing Apple's modern SwiftUI and SwiftData architecture for maximum fluidity and minimal battery consumption.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pre-Footer CTA Download Banner -->
+  <section id="download" class="py-16 bg-gradient-to-tr from-brand-700 via-brand-600 to-indigo-700 text-white text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Take control of your daily goals & counts
+      </h2>
+      <p class="text-white/80 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+        Download CountFlow on your iPhone today and achieve your daily targets and habits with ease.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#" class="px-8 py-4 rounded-2xl bg-white text-zinc-950 font-bold text-sm shadow-xl hover:bg-zinc-100 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
+          <i data-lucide="apple" class="w-5 h-5"></i>
+          <span>Download on App Store</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Footer -->
+  <footer class="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 py-12 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 space-y-4 sm:space-y-0">
+      <div class="flex items-center space-x-2">
+        <span class="font-bold text-zinc-800 dark:text-zinc-200">CountFlow</span>
+        <span>•</span>
+        <span>© 2026 All rights reserved.</span>
+      </div>
+      <div class="flex items-center space-x-6">
+        <a href="#" class="hover:underline">Privacy Policy</a>
+        <a href="#" class="hover:underline">Terms of Service</a>
+        <a href="#" class="hover:underline">Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
