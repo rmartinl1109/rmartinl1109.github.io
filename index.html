@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roberto Martín — Software NATIVO para Apple (iOS & macOS)</title>
-  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown para iOS y UtilityBox para macOS.">
-  <meta name="keywords" content="Roberto Martín, iOS, macOS, Final Countdown, UtilityBox, Swift 6, SwiftUI, Apps Apple">
+  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown para iOS, CountFlow para iOS y UtilityBox para macOS.">
+  <meta name="keywords" content="Roberto Martín, iOS, macOS, Final Countdown, CountFlow, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="FinalCountdown/assets/icon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Roberto Martín — Aplicaciones Nativas iOS & macOS">
-  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown y UtilityBox.">
+  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow y UtilityBox.">
   <meta property="og:image" content="FinalCountdown/assets/icon.png">
   <meta property="og:type" content="website">
 
@@ -31,6 +31,8 @@
       --text-muted: #9ca3af;
       --accent-fc: #f59e0b;
       --accent-fc-gradient: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      --accent-cf: #06b6d4;
+      --accent-cf-gradient: linear-gradient(135deg, #00d2ff 0%, #3b82f6 50%, #6366f1 100%);
       --accent-ub: #3b82f6;
       --accent-ub-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
       --badge-bg: rgba(255, 255, 255, 0.06);
@@ -232,10 +234,10 @@
 
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
-      gap: 2.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
     }
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .apps-grid {
         grid-template-columns: 1fr;
       }
@@ -267,6 +269,9 @@
     }
     .app-card.card-fc::before {
       background: var(--accent-fc-gradient);
+    }
+    .app-card.card-cf::before {
+      background: var(--accent-cf-gradient);
     }
     .app-card.card-ub::before {
       background: var(--accent-ub-gradient);
@@ -321,6 +326,11 @@
       color: #fbbf24;
       border: 1px solid rgba(245, 158, 11, 0.3);
     }
+    .badge-ios-cf {
+      background: rgba(6, 182, 212, 0.15);
+      color: #22d3ee;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
     .badge-macos {
       background: rgba(59, 130, 246, 0.15);
       color: #60a5fa;
@@ -369,6 +379,7 @@
       flex-shrink: 0;
     }
     .card-fc .check-icon { color: #f59e0b; }
+    .card-cf .check-icon { color: #22d3ee; }
     .card-ub .check-icon { color: #3b82f6; }
 
     /* Tags */
@@ -420,6 +431,17 @@
     }
     .btn-fc-primary:hover {
       box-shadow: 0 6px 22px rgba(245, 158, 11, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-cf-primary {
+      background: var(--accent-cf-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
+      border: none;
+    }
+    .btn-cf-primary:hover {
+      box-shadow: 0 6px 22px rgba(99, 102, 241, 0.45);
       transform: translateY(-2px);
     }
 
@@ -616,7 +638,64 @@
           </div>
         </article>
 
-        <!-- APP 2: UtilityBox -->
+        <!-- APP 2: CountFlow -->
+        <article class="app-card card-cf">
+          <div class="card-top">
+            <a href="CountFlow/index.html">
+              <img src="CountFlow/app-icon.png" alt="CountFlow Icon" class="app-icon">
+            </a>
+            <div class="app-identity">
+              <span class="app-platform-badge badge-ios-cf">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path><path d="M12 6v6l4 2"></path></svg>
+                iOS 18+ &bull; iPhone &amp; iPad
+              </span>
+              <a href="CountFlow/index.html" style="text-decoration: none; color: inherit;">
+                <h3 class="app-title">CountFlow</h3>
+              </a>
+              <p class="app-tagline">Contador universal diario y seguimiento de hábitos</p>
+            </div>
+          </div>
+
+          <p class="app-description">
+            Registra cualquier hábito, meta o cantidad diaria con total fluidez. Diseñada con una intuitiva cuadrícula 2x2, calendario visual mensual, widgets interactivos para la pantalla de inicio y sincronización privada en iCloud.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Cuadrícula 2x2 con controles táctiles instantáneos (+ / -)</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Calendario mensual visual con historial y medias diarias</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Widgets interactivos con actualización en un solo toque</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Sincronización segura por iCloud (SwiftData) y 100% offline</span>
+            </li>
+          </ul>
+
+          <div class="tag-cloud">
+            <span class="tech-pill">Swift 6</span>
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">SwiftData</span>
+            <span class="tech-pill">WidgetKit</span>
+            <span class="tech-pill">StoreKit 2</span>
+            <span class="tech-pill">Zero Tracking</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="CountFlow/index.html" class="btn btn-cf-primary" style="width: 100%;">
+              <span>Ver CountFlow</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- APP 3: UtilityBox -->
         <article class="app-card card-ub">
           <div class="card-top">
             <a href="UtilityBox/index.html">
@@ -706,6 +785,7 @@
 
         <div class="footer-links">
           <a href="FinalCountdown/index.html" class="footer-link">Final Countdown</a>
+          <a href="CountFlow/index.html" class="footer-link">CountFlow</a>
           <a href="UtilityBox/index.html" class="footer-link">UtilityBox</a>
           <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
           <a href="mailto:support@rmartinl1109.com" class="footer-link">Contacto</a>
