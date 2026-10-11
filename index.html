@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roberto Martín — Software NATIVO para Apple (iOS & macOS)</title>
-  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown para iOS, CountFlow para iOS y UtilityBox para macOS.">
-  <meta name="keywords" content="Roberto Martín, iOS, macOS, Final Countdown, CountFlow, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
+  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown, CountFlow y KitchenFlow para iOS y watchOS, y UtilityBox para macOS.">
+  <meta name="keywords" content="Roberto Martín, iOS, macOS, watchOS, Final Countdown, CountFlow, KitchenFlow, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="FinalCountdown/assets/icon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Roberto Martín — Aplicaciones Nativas iOS & macOS">
-  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow y UtilityBox.">
+  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow, KitchenFlow y UtilityBox.">
   <meta property="og:image" content="FinalCountdown/assets/icon.png">
   <meta property="og:type" content="website">
 
@@ -33,6 +33,8 @@
       --accent-fc-gradient: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
       --accent-cf: #06b6d4;
       --accent-cf-gradient: linear-gradient(135deg, #00d2ff 0%, #3b82f6 50%, #6366f1 100%);
+      --accent-kf: #f97316;
+      --accent-kf-gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%);
       --accent-ub: #3b82f6;
       --accent-ub-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
       --badge-bg: rgba(255, 255, 255, 0.06);
@@ -273,6 +275,9 @@
     .app-card.card-cf::before {
       background: var(--accent-cf-gradient);
     }
+    .app-card.card-kf::before {
+      background: var(--accent-kf-gradient);
+    }
     .app-card.card-ub::before {
       background: var(--accent-ub-gradient);
     }
@@ -331,6 +336,11 @@
       color: #22d3ee;
       border: 1px solid rgba(6, 182, 212, 0.3);
     }
+    .badge-ios-kf {
+      background: rgba(249, 115, 22, 0.15);
+      color: #fb923c;
+      border: 1px solid rgba(249, 115, 22, 0.3);
+    }
     .badge-macos {
       background: rgba(59, 130, 246, 0.15);
       color: #60a5fa;
@@ -380,6 +390,7 @@
     }
     .card-fc .check-icon { color: #f59e0b; }
     .card-cf .check-icon { color: #22d3ee; }
+    .card-kf .check-icon { color: #f97316; }
     .card-ub .check-icon { color: #3b82f6; }
 
     /* Tags */
@@ -442,6 +453,17 @@
     }
     .btn-cf-primary:hover {
       box-shadow: 0 6px 22px rgba(99, 102, 241, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-kf-primary {
+      background: var(--accent-kf-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(249, 115, 22, 0.35);
+      border: none;
+    }
+    .btn-kf-primary:hover {
+      box-shadow: 0 6px 22px rgba(234, 88, 12, 0.45);
       transform: translateY(-2px);
     }
 
@@ -695,7 +717,64 @@
           </div>
         </article>
 
-        <!-- APP 3: UtilityBox -->
+        <!-- APP 3: KitchenFlow -->
+        <article class="app-card card-kf">
+          <div class="card-top">
+            <a href="KitchenFlow/index.html">
+              <img src="KitchenFlow/app-icon.png" alt="KitchenFlow Icon" class="app-icon">
+            </a>
+            <div class="app-identity">
+              <span class="app-platform-badge badge-ios-kf">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                iOS 17+ &bull; iPadOS &bull; watchOS
+              </span>
+              <a href="KitchenFlow/index.html" style="text-decoration: none; color: inherit;">
+                <h3 class="app-title">KitchenFlow</h3>
+              </a>
+              <p class="app-tagline">Temporizadores secuenciales inteligentes para cocina</p>
+            </div>
+          </div>
+
+          <p class="app-description">
+            Cocina platos elaborados sin estrés ni descuidos. Diseñado para el ritmo real de los fogones con fases de cocción encadenadas, avisos intermedios para remover o añadir ingredientes, Live Activities, Dynamic Island y soporte para Apple Watch.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Temporizadores secuenciales con transición automática o manual</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Alertas intermedias anidadas (remover sofrito, ajustar fuego o sazonar)</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Live Activities y Dynamic Island visibles desde la pantalla bloqueada</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Vibraciones hápticas en Apple Watch ideales para cocinas ruidosas</span>
+            </li>
+          </ul>
+
+          <div class="tag-cloud">
+            <span class="tech-pill">Swift 6</span>
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">watchOS</span>
+            <span class="tech-pill">Live Activities</span>
+            <span class="tech-pill">Dynamic Island</span>
+            <span class="tech-pill">Zero Tracking</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="KitchenFlow/index.html" class="btn btn-kf-primary" style="width: 100%;">
+              <span>Ver KitchenFlow</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- APP 4: UtilityBox -->
         <article class="app-card card-ub">
           <div class="card-top">
             <a href="UtilityBox/index.html">
@@ -786,6 +865,7 @@
         <div class="footer-links">
           <a href="FinalCountdown/index.html" class="footer-link">Final Countdown</a>
           <a href="CountFlow/index.html" class="footer-link">CountFlow</a>
+          <a href="KitchenFlow/index.html" class="footer-link">KitchenFlow</a>
           <a href="UtilityBox/index.html" class="footer-link">UtilityBox</a>
           <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
           <a href="mailto:support@rmartinl1109.com" class="footer-link">Contacto</a>
