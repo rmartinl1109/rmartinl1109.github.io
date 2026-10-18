@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TicketBox Vault — Smart Receipt, Warranty & Return Tracker</title>
+  <meta name="description" content="Never lose a receipt or miss a warranty claim again. TicketBox Vault delivers lightning-fast on-device OCR, return deadline countdowns, legal PDF dossiers, and biometric security for iPhone, iPad, and Mac.">
+
+  <!-- Smart App Banner for iOS Safari -->
+  <meta name="apple-itunes-app" content="app-id=6823956977">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="TicketBox Vault — Smart Receipt & Warranty Tracker">
+  <meta property="og:description" content="On-device OCR, return countdowns, legal claim PDF export, Face ID protection, and Home Screen widgets across iOS, iPadOS, and macOS.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Stylesheet (Vanilla CSS, Zero-Build) -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- SVG Icon Sprite (Self-contained, zero external scripts) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-vault" viewBox="0 0 24 24">
+      <rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="12" cy="12" r="3"/><line x1="12" x2="12" y1="5" y2="7"/><line x1="12" x2="12" y1="17" y2="19"/><line x1="5" x2="7" y1="12" y2="12"/><line x1="17" x2="19" y1="12" y2="12"/>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+      <path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24">
+      <path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+      <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+    </symbol>
+    <symbol id="icon-receipt" viewBox="0 0 24 24">
+      <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h4"/>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+    </symbol>
+    <symbol id="icon-pdf" viewBox="0 0 24 24">
+      <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M10 13v4"/><path d="M10 13h2a1 1 0 0 1 1 1v0a1 1 0 0 1-1 1h-2"/>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="icon-widget" viewBox="0 0 24 24">
+      <rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/>
+    </symbol>
+    <symbol id="icon-mic" viewBox="0 0 24 24">
+      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+      <path d="m6 9 6 6 6-6"/>
+    </symbol>
+    <symbol id="icon-wifi" viewBox="0 0 24 24">
+      <path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/>
+    </symbol>
+    <symbol id="icon-battery" viewBox="0 0 24 24">
+      <rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><line x1="22" x2="22" y1="11" y2="13"/>
+    </symbol>
+    <symbol id="icon-apple" viewBox="0 0 24 24">
+      <path fill="currentColor" stroke="none" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.63-2.67 1.39-.56.65-.99 1.74-.86 2.79 1.03.08 2.06-.54 2.59-1.25z"/>
+    </symbol>
+    <symbol id="icon-scan-face" viewBox="0 0 24 24">
+      <path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <polygon points="6 3 20 12 6 21 6 3"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </symbol>
+  </svg>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <!-- Brand -->
+        <a href="#hero" class="brand">
+          <div class="brand-mark">
+            <svg class="icon" aria-hidden="true"><use href="#icon-vault"/></svg>
+          </div>
+          <div>
+            <span class="brand-name">TicketBox Vault</span>
+            <span class="brand-tagline">Receipts & Warranty Tracker</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="#features">Features</a>
+          <a href="#demo">Live Demo</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark/Light Mode" title="Toggle theme">
+            <svg class="icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+            <svg class="icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+          </button>
+          <a href="https://apps.apple.com/app/id6823956977" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-download"/></svg>
+            <span>App Store</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-copy">
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span>Built for iOS 17+, iPadOS 17+ & macOS 14+</span>
+            </div>
+
+            <h1 class="hero-title">
+              Your receipts protected.<br>
+              <span class="gradient-text">Your rights guaranteed.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Never lose a purchase receipt or miss a return window again. Scan tickets in seconds with on-device Vision OCR, track live warranty countdowns, generate audit-ready legal PDF dossiers, and protect your finances with Face ID.
+            </p>
+
+            <div class="hero-actions">
+              <a href="https://apps.apple.com/app/id6823956977" class="btn btn-contrast" target="_blank" rel="noopener">
+                <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-apple"/></svg>
+                <span>Download on the App Store</span>
+              </a>
+              <a href="#demo" class="btn btn-secondary">
+                <svg class="icon" aria-hidden="true"><use href="#icon-play"/></svg>
+                <span>Try Live Interactive Demo</span>
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span><span class="stars">★★★★★</span> <strong>Pure Native Swift</strong></span>
+              <span>•</span>
+              <span>100% On-Device Privacy</span>
+              <span>•</span>
+              <span>6 Official Languages</span>
+            </div>
+          </div>
+
+          <!-- Hero Device Preview -->
+          <div class="hero-visual">
+            <div class="device device--float" aria-hidden="true">
+              <div class="device-island"><span class="live-dot"></span></div>
+              <div class="preview">
+                <div class="preview-head">
+                  <div class="preview-icon glass">
+                    <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-vault"/></svg>
+                  </div>
+                  <h3 class="preview-title">TicketBox Vault</h3>
+                  <p class="preview-text">Apple Store — MacBook Pro M4<br><strong>$2,499.00</strong> • Warranty Active (365 days)</p>
+                </div>
+                <div class="preview-cards">
+                  <div class="preview-card glass">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-clock"/></svg>
+                    <span>14 Days Left for Return</span>
+                  </div>
+                  <div class="preview-card glass">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-pdf"/></svg>
+                    <span>One-Tap Legal Claim PDF</span>
+                  </div>
+                  <div class="preview-card glass">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+                    <span>Face ID Biometric Lock</span>
+                  </div>
+                </div>
+                <a href="#demo" class="btn btn-light btn-block">Explore Interactive Screens</a>
+              </div>
+              <div class="device-home"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Enterprise-Grade Architecture</span>
+          <h2 class="section-title">Everything you need to safeguard every purchase</h2>
+          <p class="section-lead">Engineered from the ground up for high speed, zero surveillance, and complete peace of mind.</p>
+        </div>
+
+        <div class="features-grid">
+          
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-blue);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-receipt"/></svg>
+            </div>
+            <h3>On-Device Neural OCR</h3>
+            <p>Scan thermal tickets, invoices, and physical receipts with VisionKit. Apple Neural Engine extracts the store, date, total, and return window right on your device.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-amber);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-clock"/></svg>
+            </div>
+            <h3>Active Return & Warranty Alerts</h3>
+            <p>Never let money slip away. Dynamic color-coded status badges, 48h and 24h critical push alerts ensure you return items or claim repairs before time expires.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-purple);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-pdf"/></svg>
+            </div>
+            <h3>Audit-Ready Legal PDF Claims</h3>
+            <p>Generate certified claim dossiers in seconds. Formatted with item details, purchase receipt image, serial number, and a SHA-256 cryptographic integrity hash for official disputes.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-green);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-lock"/></svg>
+            </div>
+            <h3>Biometric Face ID Vault</h3>
+            <p>Protect confidential financial records, salary slips, and high-value tech invoices. Unlocks seamlessly with Face ID, Touch ID, or Optic ID via Apple's Secure Enclave.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-indigo);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-widget"/></svg>
+            </div>
+            <h3>Widgets & Dynamic Island</h3>
+            <p>Monitor pending return countdowns and warranties at a glance. Available in Small, Medium, and Large formats for your Home Screen, Lock Screen, and StandBy mode.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-pink);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-mic"/></svg>
+            </div>
+            <h3>Siri & Action Button</h3>
+            <p>Scan tickets hands-free with App Intents. Trigger instant receipt capture by asking Siri or pressing the iPhone Action Button.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Demo Section -->
+    <section id="demo" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Interactive Simulator</span>
+          <h2 class="section-title">Experience TicketBox Vault right in your browser</h2>
+          <p class="section-lead">Switch through the live mockups below to test the vault, claim dossier, biometric security, and widgets.</p>
+        </div>
+
+        <div class="demo">
+          <!-- Dynamic Tabs -->
+          <div id="screen-tabs" class="tabs" role="tablist" aria-label="Demo Screens"></div>
+
+          <!-- Phone Simulator Mockup -->
+          <div class="device device--demo" role="region" aria-label="Interactive Phone Preview">
+            
+            <div class="status-bar">
+              <span id="demo-clock">09:41</span>
+              <div class="device-island"><span class="live-dot"></span></div>
+              <div class="status-icons">
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-wifi"/></svg>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-battery"/></svg>
+              </div>
+            </div>
+
+            <!-- Dynamic Viewport -->
+            <div id="demo-viewport" class="viewport"></div>
+
+            <div class="device-home"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transparent Pricing Section -->
+    <section id="pricing" class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Simple & Honest Pricing</span>
+          <h2 class="section-title">No subscriptions. No recurring charges.</h2>
+          <p class="section-lead">Enjoy the essential features completely free, or unlock Lifetime Pro with a single one-time payment.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Free Plan -->
+          <div class="pricing-card glass">
+            <div class="pricing-header">
+              <span class="plan-name">Free Starter</span>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="amount">0</span>
+              </div>
+              <span class="price-subtitle">Free forever</span>
+            </div>
+            <p class="plan-desc">Ideal for trying out neural OCR and tracking your most recent high-value purchases.</p>
+            <ul class="plan-features">
+              <li><svg class="icon icon-sm text-green" aria-hidden="true"><use href="#icon-check"/></svg> Up to 5 stored receipts & warranties</li>
+              <li><svg class="icon icon-sm text-green" aria-hidden="true"><use href="#icon-check"/></svg> Fast on-device neural Vision OCR</li>
+              <li><svg class="icon icon-sm text-green" aria-hidden="true"><use href="#icon-check"/></svg> Return & warranty countdown timers</li>
+              <li><svg class="icon icon-sm text-green" aria-hidden="true"><use href="#icon-check"/></svg> Local notifications for return deadlines</li>
+              <li><svg class="icon icon-sm text-green" aria-hidden="true"><use href="#icon-check"/></svg> 100% on-device private data storage</li>
+            </ul>
+            <a href="https://apps.apple.com/app/id6823956977" class="btn btn-secondary btn-block" target="_blank" rel="noopener">Download Free</a>
+          </div>
+
+          <!-- Lifetime Pro Plan -->
+          <div class="pricing-card pricing-card--featured glass">
+            <div class="featured-badge">MOST POPULAR • LIFETIME ACCESS</div>
+            <div class="pricing-header">
+              <span class="plan-name">TicketBox Lifetime Pro</span>
+              <div class="price">
+                <span class="currency">$</span>
+                <span class="amount">3.99</span>
+                <span class="currency-tag">one-time</span>
+              </div>
+              <span class="price-subtitle">Single purchase (4,49 € in EU) • Pay once, own forever</span>
+            </div>
+            <p class="plan-desc">Unlimited capacity, official legal PDF claims, biometric vault, and Family Sharing for all your Apple devices.</p>
+            <ul class="plan-features">
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Unlimited receipts & warranties</strong></li>
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Audit-ready legal PDF Claim Dossiers</strong></li>
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Face ID & Touch ID Biometric Lock</strong></li>
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Interactive Home & Lock Screen Widgets</strong></li>
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Siri Shortcuts & Action Button capture</strong></li>
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Apple Family Sharing included</strong></li>
+              <li><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg> <strong>Future Pro updates guaranteed at no cost</strong></li>
+            </ul>
+            <a href="https://apps.apple.com/app/id6823956977" class="btn btn-primary btn-block" target="_blank" rel="noopener">
+              <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-download"/></svg>
+              <span>Get Lifetime Pro</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2 class="section-title">Everything you need to know about TicketBox Vault</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>
+              <span>How does on-device OCR protect my financial privacy?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>Unlike other receipt apps that upload your physical receipts and bank cards to external third-party cloud servers, TicketBox Vault processes everything locally on your device using Apple's Vision framework and Neural Engine. No third party ever sees your merchant names, totals, or payment proofs.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>What is an official Legal Claim PDF Dossier?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>When an electronic device breaks, or when an online store refuses to honor a warranty, you need structured legal evidence. TicketBox Vault compiles an official single-page PDF with product specs, purchase date, merchant tax info, high-resolution receipt capture, serial number, and a SHA-256 cryptographic integrity hash that proves the receipt hasn't been doctored.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Is TicketBox Lifetime Pro really a one-time purchase?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>Yes, absolutely. We hate subscription fatigue as much as you do. For a single one-time price of $3.99 USD (4,49 € in Europe), you unlock unlimited storage and all Pro features permanently. Your purchase is tied to your Apple ID, supports Family Sharing for up to 5 family members, and can be restored anytime on new devices.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Which languages and platforms are natively supported?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>TicketBox Vault is built natively with Swift 6 and SwiftUI for iOS 17+, iPadOS 17+, and macOS 14+ (Apple Silicon & Intel). It is fully localized in 6 official languages: English, Spanish, French, German, European Portuguese (pt-PT), and Simplified Chinese (zh-Hans).</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Can I import receipts directly from files or the Share Sheet?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>Yes. You can scan physical receipts using your camera, import photos from your Photos library, or share PDF receipts and images directly into TicketBox Vault from Mail, Safari, or the Files app via the native iOS/macOS Share Sheet.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Download Banner -->
+    <section id="download" class="cta-banner">
+      <div class="container">
+        <h2>Start protecting your purchases today</h2>
+        <p>Download TicketBox Vault for iPhone, iPad, and Mac. Take control of your warranties and claim rights with the speed and elegance of native Apple design.</p>
+        <a href="https://apps.apple.com/app/id6823956977" class="btn btn-light" target="_blank" rel="noopener">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-apple"/></svg>
+          <span>Download on the App Store</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer with Legal Links required by App Store Connect -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>TicketBox Vault</strong>
+          <span>•</span>
+          <span>Apple ID: 6823956977</span>
+          <span>•</span>
+          <span>© 2026 All rights reserved.</span>
+        </div>
+        <nav class="footer-links" aria-label="Legal & Support Navigation">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="support.html">Contact & Support</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
