@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roberto Martín — Software NATIVO para Apple (iOS & macOS)</title>
-  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown, CountFlow y KitchenFlow para iOS y watchOS, y UtilityBox para macOS.">
-  <meta name="keywords" content="Roberto Martín, iOS, macOS, watchOS, Final Countdown, CountFlow, KitchenFlow, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
+  <meta name="description" content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown, CountFlow, KitchenFlow y TicketBox Vault para iOS, y UtilityBox para macOS.">
+  <meta name="keywords" content="Roberto Martín, iOS, macOS, watchOS, Final Countdown, CountFlow, KitchenFlow, TicketBox Vault, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="FinalCountdown/assets/icon.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Roberto Martín — Aplicaciones Nativas iOS & macOS">
-  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow, KitchenFlow y UtilityBox.">
+  <meta property="og:description" content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow, KitchenFlow, TicketBox Vault y UtilityBox.">
   <meta property="og:image" content="FinalCountdown/assets/icon.png">
   <meta property="og:type" content="website">
 
@@ -35,6 +35,8 @@
       --accent-cf-gradient: linear-gradient(135deg, #00d2ff 0%, #3b82f6 50%, #6366f1 100%);
       --accent-kf: #f97316;
       --accent-kf-gradient: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%);
+      --accent-tb: #6366f1;
+      --accent-tb-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
       --accent-ub: #3b82f6;
       --accent-ub-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
       --badge-bg: rgba(255, 255, 255, 0.06);
@@ -278,6 +280,9 @@
     .app-card.card-kf::before {
       background: var(--accent-kf-gradient);
     }
+    .app-card.card-tb::before {
+      background: var(--accent-tb-gradient);
+    }
     .app-card.card-ub::before {
       background: var(--accent-ub-gradient);
     }
@@ -341,6 +346,11 @@
       color: #fb923c;
       border: 1px solid rgba(249, 115, 22, 0.3);
     }
+    .badge-ios-tb {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
     .badge-macos {
       background: rgba(59, 130, 246, 0.15);
       color: #60a5fa;
@@ -391,6 +401,7 @@
     .card-fc .check-icon { color: #f59e0b; }
     .card-cf .check-icon { color: #22d3ee; }
     .card-kf .check-icon { color: #f97316; }
+    .card-tb .check-icon { color: #818cf8; }
     .card-ub .check-icon { color: #3b82f6; }
 
     /* Tags */
@@ -464,6 +475,17 @@
     }
     .btn-kf-primary:hover {
       box-shadow: 0 6px 22px rgba(234, 88, 12, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-tb-primary {
+      background: var(--accent-tb-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+      border: none;
+    }
+    .btn-tb-primary:hover {
+      box-shadow: 0 6px 22px rgba(139, 92, 246, 0.45);
       transform: translateY(-2px);
     }
 
@@ -774,7 +796,66 @@
           </div>
         </article>
 
-        <!-- APP 4: UtilityBox -->
+        <!-- APP 4: TicketBox Vault -->
+        <article class="app-card card-tb">
+          <div class="card-top">
+            <a href="TicketBoxVault/index.html">
+              <img src="TicketBoxVault/app-icon.png" alt="TicketBox Vault Icon" class="app-icon">
+            </a>
+            <div class="app-identity">
+              <span class="app-platform-badge badge-ios-tb">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="18" height="18" x="3" y="3" rx="2"></rect><circle cx="12" cy="12" r="3"></circle><line x1="12" y1="12" x2="12" y2="5"></line><line x1="12" y1="12" x2="12" y2="19"></line></svg>
+                iOS 17+ &bull; iPadOS &bull; macOS
+              </span>
+              <a href="TicketBoxVault/index.html" style="text-decoration: none; color: inherit;">
+                <h3 class="app-title">TicketBox Vault</h3>
+              </a>
+              <p class="app-tagline">Gestor inteligente de tickets, garantías y devoluciones</p>
+            </div>
+          </div>
+
+          <p class="app-description">
+            Organiza tus facturas, controla los plazos de garantía y no pierdas ni una devolución. Reconocimiento óptico OCR de tickets en el propio dispositivo, alertas de caducidad, generación de expedientes PDF para reclamaciones y máxima privacidad con Face ID.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Escaneo ultrarrápido con OCR local (tienda, fecha e importe exacto)</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Cuenta atrás para límites de devolución y vencimiento de garantías</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Generación de dossiers PDF con validez probatoria para el SAT</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Bóveda privada con Face ID / Touch ID y widgets para la Pantalla de Inicio</span>
+            </li>
+          </ul>
+
+          <div class="tag-cloud">
+            <span class="tech-pill">Swift 6</span>
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">SwiftData</span>
+            <span class="tech-pill">Vision OCR</span>
+            <span class="tech-pill">PDFKit</span>
+            <span class="tech-pill">WidgetKit</span>
+            <span class="tech-pill">LocalAuthentication</span>
+            <span class="tech-pill">Zero Tracking</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="TicketBoxVault/index.html" class="btn btn-tb-primary" style="width: 100%;">
+              <span>Ver TicketBox Vault</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- APP 5: UtilityBox -->
         <article class="app-card card-ub">
           <div class="card-top">
             <a href="UtilityBox/index.html">
@@ -866,6 +947,7 @@
           <a href="FinalCountdown/index.html" class="footer-link">Final Countdown</a>
           <a href="CountFlow/index.html" class="footer-link">CountFlow</a>
           <a href="KitchenFlow/index.html" class="footer-link">KitchenFlow</a>
+          <a href="TicketBoxVault/index.html" class="footer-link">TicketBox Vault</a>
           <a href="UtilityBox/index.html" class="footer-link">UtilityBox</a>
           <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
           <a href="mailto:support@rmartinl1109.com" class="footer-link">Contacto</a>

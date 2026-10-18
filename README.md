@@ -52,3 +52,4 @@ Paquetes y actualizaciones para módulos de Catastro y gestión:
 - ⏱️ **[Final-Countdown](https://rmartinl1109.github.io/FinalCountdown/index.html)**: Página de información y descarga en App Store de la app Final-Countdown.
 - 🔢 **[CountFlow](https://rmartinl1109.github.io/CountFlow/index.html)**: Contador universal diario y seguimiento de hábitos para iOS.
 - 🍳 **[KitchenFlow](https://rmartinl1109.github.io/KitchenFlow/index.html)**: Asistente inteligente y temporizadores por fases para cocina y repostería en iOS y watchOS.
+- 🧾 **[TicketBox Vault](https://rmartinl1109.github.io/TicketBoxVault/index.html)**: Gestor inteligente de recibos, garantías y plazos de devolución con OCR en el dispositivo para iOS, iPadOS y macOS.
