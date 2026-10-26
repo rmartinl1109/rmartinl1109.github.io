@@ -58,27 +58,27 @@ const screens = {
         </div>
 
         <button id="demo-btn-open-claim" class="btn btn-secondary btn-block" style="margin-top: 14px; font-size: 0.8125rem;">
-          <span>Generate Legal PDF Claim</span>
+          <span>Generate PDF Claim</span>
           <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
         </button>
       </div>
     `
   },
   claim: {
-    tab: 'Legal Claim Dossier',
+    tab: 'Claim Dossier',
     render: () => `
       <div class="screen screen--top">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
           <button id="demo-btn-back-vault" class="icon-btn" style="width: 28px; height: 28px; padding: 4px;" aria-label="Back">
             ←
           </button>
-          <h4 class="screen-title" style="margin: 0; font-size: 0.9375rem;">Official Claim Dossier</h4>
+          <h4 class="screen-title" style="margin: 0; font-size: 0.9375rem;">Claim Dossier</h4>
         </div>
 
         <div class="sim-receipt-card" style="background: var(--color-surface); border: 1px solid var(--color-brand-500); padding: 12px;">
           <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--color-text-subtle); border-bottom: 1px solid var(--color-border); padding-bottom: 6px; margin-bottom: 6px;">
             <span>DOC-2026-CLAIM-001</span>
-            <span>CERTIFIED AUDIT PROOF</span>
+            <span>CLAIM DOSSIER</span>
           </div>
 
           <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-strong);">
@@ -93,12 +93,6 @@ const screens = {
             <div><strong>Warranty Expiration:</strong> Oct 14, 2027 (EU/US 3-Year Extended)</div>
           </div>
 
-          <div style="font-size: 0.65rem; color: var(--color-text-subtle); margin-bottom: 2px;">
-            SHA-256 Cryptographic Integrity Hash:
-          </div>
-          <div class="sim-hash-box">
-            e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-          </div>
         </div>
 
         <div class="stack" style="margin-top: 10px;">
@@ -141,12 +135,12 @@ const screens = {
     `
   },
   widgets: {
-    tab: 'Interactive Widgets',
+    tab: 'Widgets',
     render: () => `
       <div class="screen screen--top">
         <div style="margin-bottom: 10px;">
           <h4 class="screen-title" style="margin: 0; text-align: left; font-size: 0.9375rem;">Widgets & StandBy</h4>
-          <span style="font-size: 0.7rem; color: var(--color-text-muted);">Glanceable countdowns on iOS & macOS</span>
+          <span style="font-size: 0.7rem; color: var(--color-text-muted);">Glanceable countdowns on iPhone & iPad</span>
         </div>
 
         <!-- Medium Widget Preview -->
@@ -185,7 +179,7 @@ const screens = {
     `
   },
   pro: {
-    tab: 'Lifetime Pro',
+    tab: 'Vault Pro',
     render: () => `
       <div class="screen screen--top">
         <div style="text-align: center; margin-bottom: 8px;">
@@ -193,12 +187,12 @@ const screens = {
             LIFETIME ACCESS
           </span>
           <h4 class="screen-title" style="margin: 4px 0 2px;">TicketBox Pro</h4>
-          <p class="screen-subtitle" style="font-size: 0.75rem;">$3.99 USD / 4,49 € • One-time purchase</p>
+          <p class="screen-subtitle" style="font-size: 0.75rem;">$4.99 USD / 4,99 € • One-time purchase</p>
         </div>
 
         <div class="list-group" style="font-size: 0.75rem; margin-bottom: 12px;">
           <div class="list-row"><span>Unlimited Receipts & Invoices</span><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg></div>
-          <div class="list-row"><span>Official Legal Claim PDF Dossiers</span><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg></div>
+          <div class="list-row"><span>Claim PDF Dossiers</span><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg></div>
           <div class="list-row"><span>Face ID Biometric Privacy</span><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg></div>
           <div class="list-row"><span>Widgets & StandBy Countdown</span><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg></div>
           <div class="list-row"><span>Apple Family Sharing</span><svg class="icon icon-sm text-brand" aria-hidden="true"><use href="#icon-check"/></svg></div>
@@ -206,7 +200,7 @@ const screens = {
 
         <div class="stack">
           <button class="btn btn-primary btn-block" style="font-size: 0.8125rem;">
-            <span>Unlock Lifetime Pro ($3.99)</span>
+            <span>Unlock Vault Pro ($4.99)</span>
           </button>
           <button class="btn btn-secondary btn-block" style="font-size: 0.75rem; padding: 8px;">
             <span>Restore Purchases</span>

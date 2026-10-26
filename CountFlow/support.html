@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Support &amp; Help — CountFlow</title>
+  <meta name="description" content="Official Customer Support, FAQs, and Help for CountFlow on iPhone, iPad, and Apple TV.">
+  <link rel="icon" type="image/png" href="./app-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .brand-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .contact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: all var(--duration) var(--ease);
+    }
+    .contact-card:hover {
+      border-color: var(--color-brand-500);
+      transform: translateY(-2px);
+    }
+    .contact-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      color: var(--color-text-strong);
+    }
+    .contact-card p {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .faq-accordion details {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      transition: border-color var(--duration);
+    }
+    .faq-accordion details[open] {
+      border-color: var(--color-brand-500);
+    }
+    .faq-accordion summary {
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--color-text-strong);
+      user-select: none;
+    }
+    .faq-accordion p {
+      margin-top: 0.75rem;
+      margin-bottom: 0;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a href="index.html" class="brand">
+          <img src="./app-icon.png" alt="CountFlow Logo" class="brand-avatar">
+          <div>
+            <span class="brand-name">CountFlow</span>
+            <span class="brand-tagline">Customer Support</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <a href="index.html" class="btn btn-secondary btn-sm">← Back to App</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="legal">
+      <h1>Customer Support &amp; Help Center</h1>
+      <p class="legal-meta">We are here to assist you with CountFlow on iOS, iPadOS, and tvOS.</p>
+
+      <h2>How Can We Help You?</h2>
+      <p>Whether you have encountered a bug, have questions about iCloud sync, need help restoring a purchase, or want to suggest a new feature, we're ready to help.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Direct Email Support</h3>
+          <p>Send our development team an email with your device model and iOS/tvOS version. We typically respond within 24–48 hours.</p>
+          <a href="mailto:countflow.support@rmartinl1109.com" class="btn btn-primary btn-sm">Email Support</a>
+        </div>
+
+        <div class="contact-card">
+          <h3>Restore Purchases</h3>
+          <p>Already purchased CountFlow Pro? Open CountFlow &gt; Tap the ⚙️ Settings gear &gt; Tap <strong>"Restore Purchases"</strong> to reactivate on any device.</p>
+          <span class="text-sm font-semibold text-brand">Free across all your Apple devices</span>
+        </div>
+
+        <div class="contact-card">
+          <h3>Apple TV Experience</h3>
+          <p>Using CountFlow on Apple TV 4K? Control daily counts with your Siri Remote and activate Ambient Kiosk mode for full-screen dashboards.</p>
+          <a href="index.html#features" class="btn btn-secondary btn-sm">Learn More</a>
+        </div>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-accordion">
+        <details>
+          <summary>How do I sync my counters between iPhone, iPad, and Apple TV?</summary>
+          <p>CountFlow utilizes Apple's native iCloud (CloudKit) sync. As long as your devices are signed into the same Apple ID and have iCloud Drive enabled, your counters and daily logs will synchronize seamlessly in the background.</p>
+        </details>
+
+        <details>
+          <summary>How are analytics calculated?</summary>
+          <p>Each counter features its own dedicated Swift Charts analytics tab. You can toggle between 7, 30, and 90-day timeframes to see active days, daily averages, and best streaks specifically for that counter without mixing unrelated activities.</p>
+        </details>
+
+        <details>
+          <summary>Is CountFlow Pro a subscription or a one-time purchase?</summary>
+          <p>CountFlow Pro is a 100% one-time, lifetime purchase. There are no monthly fees, no annual renewals, and it includes Apple Family Sharing for up to 5 members.</p>
+        </details>
+
+        <details>
+          <summary>What should I do if a counter isn't incrementing on Apple TV?</summary>
+          <p>Use the Siri Remote clickpad or swipe to focus on the <strong>+</strong> or <strong>-</strong> buttons and press the clickpad center to increment or decrement. You can also press Play/Pause for quick actions.</p>
+        </details>
+      </div>
+
+      <h2>App Details</h2>
+      <ul>
+        <li><strong>App Name:</strong> CountFlow</li>
+        <li><strong>Platforms:</strong> iOS 17+, iPadOS 17+, tvOS 17+ (Universal Purchase)</li>
+        <li><strong>Support Email:</strong> <a href="mailto:countflow.support@rmartinl1109.com" class="text-brand">countflow.support@rmartinl1109.com</a></li>
+      </ul>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-copy">
+        <strong>CountFlow</strong> • Universal Daily Counter &amp; Tracker • © 2026 Roberto Martín López.
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="support.html" class="active">Support</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — CountFlow</title>
+  <meta name="description" content="Privacy Policy for CountFlow. We believe privacy is a fundamental human right. Zero third-party trackers, 100% private.">
+  <link rel="icon" type="image/png" href="./app-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .brand-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a href="index.html" class="brand">
+          <img src="./app-icon.png" alt="CountFlow Logo" class="brand-avatar">
+          <div>
+            <span class="brand-name">CountFlow</span>
+            <span class="brand-tagline">Privacy Policy</span>
+          </div>
+        </a>
+
+        <div class="nav-actions">
+          <a href="index.html" class="btn btn-secondary btn-sm">← Back to App</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="legal">
+      <h1>Privacy Policy</h1>
+      <p class="legal-meta">Last updated: October 2026</p>
+
+      <div class="notice">
+        <strong>Privacy by Design:</strong> CountFlow is engineered so your personal counts, habit logs, and activity records stay exclusively on your device or in your personal private iCloud account. We do not collect, transmit, sell, or rent your personal data, nor do we track you across third-party websites or services.
+      </div>
+
+      <h2>1. Information We Collect and Process</h2>
+      <p>Our core philosophy is absolute data minimization. We only store the minimal information required to give you an ultra-responsive counting experience across iPhone, iPad, and Apple TV:</p>
+      <ul>
+        <li><strong>On-Device Storage:</strong> All your counters, timestamps, goal values, categories, and settings are stored locally on your device using Apple's native <code>SwiftData</code> framework and protected with iOS/iPadOS/tvOS Data Protection (<code>.completeFileProtection</code>).</li>
+        <li><strong>iCloud Synchronization (CloudKit):</strong> If you choose to enable iCloud synchronization, your counter data is transmitted and synced via Apple's private CloudKit database. This data is encrypted in transit and at rest by Apple, linked exclusively to your personal Apple ID. The developer has zero access to your iCloud records or encryption keys.</li>
+        <li><strong>Zero Analytics or Crash SDKs:</strong> CountFlow contains zero third-party telemetry, advertising, or behavior tracking libraries. Any opt-in diagnostic crash logs are collected directly by Apple via App Store Connect and are strictly anonymized.</li>
+      </ul>
+
+      <h2>2. In-App Purchases (StoreKit 2)</h2>
+      <p>Purchases of <strong>CountFlow Pro</strong> (unlimited counters, interactive widgets, exclusive themes) are processed directly by Apple through StoreKit 2. We never handle, receive, or store your credit card, billing address, or payment information. All billing transactions are governed by the Apple Media Services Terms and Conditions.</p>
+
+      <h2>3. Required Reason APIs Compliance</h2>
+      <p>CountFlow fully complies with Apple's Required Reason API policies documented in our official <code>PrivacyInfo.xcprivacy</code> manifest:</p>
+      <ul>
+        <li><code>UserDefaults</code> is used solely on-device to persist basic user preferences (theme choice, sound effects, haptic toggles) under purpose code <code>CA92.1</code>.</li>
+        <li>No biometric data, location data, camera, or microphone feeds are ever requested or accessed.</li>
+      </ul>
+
+      <h2>4. Data Retention and Deletion</h2>
+      <p>Because all data is stored on your device and inside your personal iCloud account, you maintain 100% control over it:</p>
+      <ul>
+        <li>Deleting a counter removes all associated historical log entries permanently.</li>
+        <li>Uninstalling the app removes all local database files. You can delete synced iCloud data anytime via iOS Settings &gt; Apple ID &gt; iCloud &gt; Storage.</li>
+      </ul>
+
+      <h2>5. Changes to This Policy</h2>
+      <p>If we update this Privacy Policy, the revised version will be published here with an updated revision date. Any future functional change that involves data handling will be reflected simultaneously in the application's <code>PrivacyInfo.xcprivacy</code> manifest and App Store Connect Privacy Labels.</p>
+
+      <h2>6. Contact Us</h2>
+      <p>If you have any questions or feedback regarding privacy in CountFlow, feel free to contact us at <a href="mailto:countflow.support@rmartinl1109.com" class="text-brand">countflow.support@rmartinl1109.com</a> or visit our <a href="support.html">Customer Support Page</a>.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-copy">
+        <strong>CountFlow</strong> • Universal Daily Counter &amp; Tracker • © 2026 Roberto Martín López.
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html" class="active">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="support.html">Support</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
