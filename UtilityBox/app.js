@@ -17,7 +17,7 @@ const MODULES_DATA = [
     icon: "🌐",
     accent: "#38bdf8",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "High-speed /24 CIDR sweep and Bonjour mDNS device discovery.",
     description: "Discovers all active devices connected to the local network using a non-blocking TCP RST probing engine combined with Apple Bonjour service discovery. Resolves hostnames, identifies Apple hardware, printers, and IoT devices, with direct one-click jump to Ping diagnostics.",
     capabilities: [
@@ -39,7 +39,7 @@ UI: NavigationSplitView, ContextMenu, Side Inspector, Live Status Cards`,
     icon: "📈",
     accent: "#38bdf8",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Non-root ICMP & TCP latency analysis with real-time Swift Charts.",
     description: "Professional connectivity and latency measurement utility. Sends non-privileged ICMP echo datagrams via Darwin kernel sockets and measures TCP round-trip times to specific ports. Displays continuous Swift Charts area/line graphs, packet loss percentage, and jitter calculations.",
     capabilities: [
@@ -61,7 +61,7 @@ UI: Apple Swift Charts (AreaMark + LineMark + RuleMark), Monospaced Terminal`,
     icon: "🛡️",
     accent: "#38bdf8",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Ultra-fast BSD socket auditor with active service banner grabbing.",
     description: "Scans TCP and UDP ports across targets using non-blocking Darwin sockets with poll() multiplexing. Capable of evaluating hundreds of ports per second while classifying them as Open, Closed, or Filtered. Grabs live service banners for SSH, HTTP, FTP, SMTP, and database engines.",
     capabilities: [
@@ -83,7 +83,7 @@ UI: Filter tabs (All, Open, Closed, Filtered), Side Inspector with RFC security 
     icon: "🔍",
     accent: "#38bdf8",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Comprehensive DNS record queries, propagation tests & recursive trace.",
     description: "Deep DNS inspection studio. Query standard record types (A, AAAA, CNAME, MX, TXT, NS, SOA, PTR, CAA, SRV) directly against recursive resolvers or public providers (Cloudflare, Google, Quad9). Features worldwide multi-server propagation verification, DNS delegation trace, and a raw dig-style output console.",
     capabilities: [
@@ -105,7 +105,7 @@ UI: Multi-tab layout (Records, Propagation, Trace, Dig Console), JSON/Text Expor
     icon: "⚡",
     accent: "#38bdf8",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Cloudflare Edge benchmark with Bufferbloat analysis & analog gauge.",
     description: "Network benchmark powered by Cloudflare's Anycast Edge infrastructure. Measures baseline idle ping, multi-threaded download speed with adaptive chunks, upload throughput, and loaded latency bufferbloat scoring (A+ through F) with real-time experience fitness badges for 4K streaming and gaming.",
     capabilities: [
@@ -127,7 +127,7 @@ UI: Custom Speedometer Gauge (Canvas/SwiftUI Shape), Swift Charts Live Curve, Hi
     icon: "💻",
     accent: "#a855f7",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Mach Kernel telemetry, P/E Cores load grid & unified RAM pressure.",
     description: "Low-overhead telemetry monitor built directly on macOS Mach Kernel APIs. Breaks down Apple Silicon (M1/M2/M3/M4) and Intel architectures, providing per-core load visualization for Performance Cores and Efficiency Cores, unified RAM memory breakdown, memory pressure alerts, and top resource-heavy processes.",
     capabilities: [
@@ -149,7 +149,7 @@ UI: SoC Hero Card, CPU Core Load Grid, Memory Gauge, Thermal State Indicator`,
     icon: "💾",
     accent: "#a855f7",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Interactive APFS Treemap, Large Files Hunter & safe cache cleaner.",
     description: "Visual storage management suite. Scans local and external volumes to render an interactive proportional Treemap categorized by file type. Features a Large Files Hunter to quickly isolate files exceeding 50MB to 1GB+, and an intelligent developer/browser cache cleaner for Xcode, SPM, Homebrew, and browsers.",
     capabilities: [
@@ -171,7 +171,7 @@ UI: Interactive Treemap View, Storage Gauge Bar, Category Matrix, Trash Integrat
     icon: "🎵",
     accent: "#ec4899",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "High-fidelity batch conversion, ID3v2 tag editor & waveform player.",
     description: "Studio-grade audio processing suite. Converts batch audio between M4A (AAC), Apple Lossless (ALAC), FLAC 24-bit audiophile, WAV Linear PCM, AIFF, CAF, and MP3 with full ID3v2.3 tags. Includes peak volume normalization to -1 dBFS, interactive waveform scrubbing, and instant A/B original vs converted comparison.",
     capabilities: [
@@ -193,7 +193,7 @@ UI: Waveform Canvas, Batch Drop Zone, Metadata Inspector Modal, A/B Toggle`,
     icon: "📏",
     accent: "#10b981",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Real-time dual-slider conversions for digital data, network & UI design.",
     description: "Universal live unit converter tailored for engineers, developers, and designers. Distinguishes strictly between IEC Binary (KiB, MiB, GiB) and SI Decimal (KB, MB, GB) units, bridges UI design densities (points, @1x, @2x, @3x Retina, rem), and provides live download time estimations with JSON/Markdown export.",
     capabilities: [
@@ -215,7 +215,7 @@ UI: Bidirectional Sliders + Numeric TextFields, Live Conversion Matrix, Preset C
     icon: "📱",
     accent: "#10b981",
     status: "implemented",
-    statusLabel: "Live • v1.0",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Custom vector styling with Apple Vision local barcode decoding.",
     description: "Vector QR generator and AI-powered decoder. Create stylized QR codes for Wi-Fi credentials, vCard contact cards, URLs, SMS, and geolocation coordinates with customizable module shapes (rounded, dots), color palettes, and SF Symbol center logos. Includes Apple Vision offline scanner with drag-and-drop.",
     capabilities: [
@@ -229,10 +229,6 @@ APIs: CIFilter, VNDetectBarcodesRequest, CGContext vector SVG renderer
 UI: Live interactive Preview, Drag-and-Drop Drop Zone, High-Res PNG & SVG Exporter`,
     tags: ["Wi-Fi QR", "vCard 3.0", "Apple Vision", "Vector SVG", "SF Symbols Logos"]
   },
-
-  // =========================================================================
-  // ROADMAP MODULES (15 Planned)
-  // =========================================================================
   {
     id: "local_web_server",
     title: "Instant Local Web Server",
@@ -240,8 +236,8 @@ UI: Live interactive Preview, Drag-and-Drop Drop Zone, High-Res PNG & SVG Export
     categoryLabel: "Network",
     icon: "🖥️",
     accent: "#38bdf8",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "One-click static HTTP file server with QR code mobile pairing.",
     description: "Spin up a lightweight HTTP file server in any local directory with zero firewall configuration. Automatically generates a QR code to quickly open or download assets on iPhones, iPads, and other LAN devices without cloud intermediaries.",
     capabilities: [
@@ -250,10 +246,15 @@ UI: Live interactive Preview, Drag-and-Drop Drop Zone, High-Res PNG & SVG Export
       "Direct drag-and-drop folder sharing without complex web server config",
       "Zero firewall adjustments required; clean App Sandbox network.server entitlement"
     ],
-    architecture: `Planned: Network.framework NWListener HTTP/1.1 microserver
-Security: Restricted to designated sandbox directory permissions`,
+    architecture: `Architecture: Network.framework NWListener HTTP/1.1 microserver
+Security: Sandbox security-scoped bookmarks & directory permissions
+UI: Real-time HTTP traffic monitor, dynamic QR code, drag & drop folder dropzone`,
     tags: ["HTTP Server", "LAN Sharing", "QR Pairing", "Network.framework", "Mobile Sync"]
   },
+
+  // =========================================================================
+  // ROADMAP MODULES (14 Planned)
+  // =========================================================================
   {
     id: "battery_health",
     title: "Battery Health & Telemetry",
@@ -261,8 +262,8 @@ Security: Restricted to designated sandbox directory permissions`,
     categoryLabel: "System",
     icon: "🔋",
     accent: "#a855f7",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Real mAh capacity, cycle count, charge wattage & thermal drain history.",
     description: "Deep battery telemetry for MacBook hardware. Reads low-level power management data via IOKit to calculate true real-world health (current mAh vs factory design capacity), battery cycle counts, live charging/discharging wattage, and thermal drain curves.",
     capabilities: [
@@ -292,8 +293,6 @@ APIs: IOPSCopyPowerSourcesInfo, Mach power events`,
       "Identification of orphaned background daemons and login items",
       "Safe multi-item removal to Trash with permission checkpoints"
     ],
-    architecture: `Planned: FileManager directory traverser + AppKit bundle inspector
-Security: Explicit user permission checkpoints via NSOpenPanel / Trash API`,
     tags: ["App Cleaner", "~/Library Purge", "Orphaned Plists", "Application Support", "Deep Uninstall"]
   },
   {
@@ -303,19 +302,19 @@ Security: Explicit user permission checkpoints via NSOpenPanel / Trash API`,
     categoryLabel: "Multimedia",
     icon: "🗜️",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Multithreaded WebP and AVIF compression with interactive before/after slider.",
-    description: "High-performance image optimization studio. Compresses PNG, JPEG, WebP, and AVIF files using concurrent task pools without perceptible quality loss. Features an interactive before/after split slider to inspect compression artifacts in real time.",
+    description: "High-performance image optimization studio. Compresses PNG, JPEG, WebP, and HEIC files using concurrent task pools without perceptible quality loss. Features an interactive before/after split slider to inspect compression artifacts in real time.",
     capabilities: [
-      "Modern format support: WebP and AVIF next-gen encoding",
+      "Modern format support: WebP, HEIC, PNG and JPEG encoding",
       "Multi-core batch compression preserving ICC color profiles",
-      "Quality presets (Lossless, High 90%, Balanced 80%, Maximum Compact)",
+      "Quality presets (High 90%, Balanced 75%, Max 50%, Ultra 30%)",
       "Interactive visual A/B split comparison slider"
     ],
-    architecture: `Planned: ImageIO + CoreGraphics concurrent processing pipeline
-APIs: CGImageSource, CGImageDestination, libwebp / libavif integration`,
-    tags: ["WebP", "AVIF", "Lossless Compression", "A/B Slider", "Batch Processing"]
+    architecture: `Active: ImageIO + CoreGraphics concurrent processing pipeline
+APIs: CGImageSource, CGImageDestination, lossy & lossless compression engine`,
+    tags: ["WebP", "HEIC", "Lossless Compression", "A/B Slider", "Batch Processing"]
   },
   {
     id: "image_format_converter",
@@ -324,19 +323,19 @@ APIs: CGImageSource, CGImageDestination, libwebp / libavif integration`,
     categoryLabel: "Multimedia",
     icon: "🖼️",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Universal batch conversion for Apple HEIC, WebP, AVIF, TIFF & Camera RAW.",
-    description: "Versatile image converter supporting virtually every visual asset format: Apple HEIC/HEIF, WebP, AVIF, PNG, JPEG, TIFF, BMP, ICO, and professional Camera RAW photos (Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG) with Display P3 wide color gamut preservation.",
+    description: "Versatile image converter supporting virtually every visual asset format: Apple HEIC/HEIF, WebP, PNG, JPEG, TIFF, BMP, ICO (Windows/Web), and professional Camera RAW photos (Canon CR2/CR3, Nikon NEF, Sony ARW, Adobe DNG) with Display P3 wide color gamut preservation and multi-page PDF compilation.",
     capabilities: [
-      "Universal formats: HEIC, WebP, AVIF, PNG, JPG, TIFF, BMP, ICO",
+      "Universal formats: HEIC, WebP, PNG, JPG, TIFF, BMP, ICO, PDF",
       "Professional Camera RAW decoding (CR2, NEF, ARW, DNG, RAF)",
-      "Color space management: Display P3, Adobe RGB, and sRGB transforms",
-      "Folder drag-and-drop batch queue with recursive processing"
+      "Color space management: Display P3, sRGB, and original profile transforms",
+      "Multi-page PDF compilation and Windows/Web ICO icon bundle generator"
     ],
-    architecture: `Planned: CoreImage + ImageIO RAW camera processing engine
-APIs: CIRAWFilter, CGColorSpaceCreateWithName`,
-    tags: ["HEIC to PNG", "Camera RAW", "Display P3", "Batch Converter", "WebP/AVIF"]
+    architecture: `Active: CoreImage + ImageIO RAW camera processing engine + PDFKit
+APIs: CGImageSource, CGImageDestination, PDFDocument, PDFPage`,
+    tags: ["HEIC to PNG", "Camera RAW", "Display P3", "Batch Converter", "Multi-Page PDF"]
   },
   {
     id: "image_resizer",
@@ -345,40 +344,40 @@ APIs: CIRAWFilter, CGColorSpaceCreateWithName`,
     categoryLabel: "Multimedia",
     icon: "📐",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "High-precision aspect ratio scaling and social media presets.",
-    description: "Resize hundreds of images simultaneously with Lanczos interpolation. Features aspect ratio locking, target dimension presets for social platforms (Instagram, Twitter/X, YouTube thumbnails), and percentage-based scale adjustments.",
+    description: "Resize hundreds of images simultaneously with high-fidelity interpolation. Features aspect ratio locking, target dimension presets for social platforms (Instagram, Twitter/X, YouTube thumbnails, Full HD, 4K), and percentage-based scale adjustments.",
     capabilities: [
-      "High-fidelity Lanczos resampling avoiding blur and aliasing",
-      "Standard social media dimension presets and custom aspect ratios",
-      "Percentage scaling (50%, 75%, 200%) and fit/fill cropping modes",
-      "Smart metadata preservation (EXIF, creation date, color space)"
+      "High-fidelity CoreGraphics resampling avoiding blur and aliasing",
+      "Standard social media dimension presets (Instagram, X, YouTube, HD, 4K)",
+      "Percentage scaling (10% to 300%) and fit/fill/stretch cropping modes",
+      "Aspect ratio locking with live before/after dimension badges"
     ],
-    architecture: `Planned: CoreGraphics bitmap context rendering + Swift Concurrency
-APIs: CGBitmapContextCreate, CGContextSetInterpolationQuality`,
-    tags: ["Lanczos Resizing", "Social Media Presets", "Batch Scale", "Aspect Ratio Lock"]
+    architecture: `Active: CoreGraphics bitmap context rendering + Swift Concurrency
+APIs: CGBitmapContextCreate, CGContextSetInterpolationQuality(.high)`,
+    tags: ["High-DPI Resizing", "Social Media Presets", "Batch Scale", "Aspect Ratio Lock"]
   },
   {
     id: "exif_cleaner",
-    title: "EXIF & Geolocation Privacy Cleaner",
+    title: "EXIF Studio: Limpiador & Geotag",
     category: "multimedia",
     categoryLabel: "Multimedia",
     icon: "📍",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
-    subtitle: "One-click stripping of GPS coordinates, camera serials & sensitive metadata.",
-    description: "Protects personal privacy before sharing photos online. Strips precise GPS latitude/longitude coordinates, camera and lens serial numbers, capture timestamps, and author IPTC metadata without altering image pixel quality.",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
+    subtitle: "Interactive MapKit geotagging, time shift & lossless privacy scrubber.",
+    description: "Dual-mode EXIF studio. Strip GPS coordinates, serials, and personal metadata for online privacy, or enrich photos by searching places on an interactive Apple Map, injecting coordinates, correcting timezone time shifts, and embedding IPTC copyright notices.",
     capabilities: [
-      "Complete removal of GPS location data from JPEG, HEIC, PNG, and TIFF",
-      "Scrubbing of camera make, model, lens serials, and exposure parameters",
-      "IPTC and XMP metadata cleaner with preview before removal",
-      "Non-destructive export preserving original files in safety"
+      "Privacy scrubber: Strip GPS, camera serials, timestamps, and IPTC author data",
+      "Interactive MapKit Geotagging with place/address search via CLGeocoder",
+      "Timezone correction & time shift (+/- hours/minutes) for travel photo batches",
+      "IPTC Copyright notice, Artist, and Image Title embedding"
     ],
-    architecture: `Planned: ImageIO metadata dictionary stripping
-APIs: CGImageSourceCopyPropertiesAtIndex, CGImageDestinationAddImageFromSource`,
-    tags: ["EXIF Stripper", "GPS Privacy", "IPTC Cleaner", "Lossless Metadata Scrub"]
+    architecture: `Active: ImageIO metadata dictionary pipeline + MapKit CLGeocoder
+APIs: CGImageSourceCopyPropertiesAtIndex, CGImageDestinationAddImage, MapKit Marker`,
+    tags: ["EXIF Stripper", "MapKit Geotagger", "Time Shift", "IPTC Copyright", "GPS Privacy"]
   },
   {
     id: "app_icon_generator",
@@ -387,19 +386,19 @@ APIs: CGImageSourceCopyPropertiesAtIndex, CGImageDestinationAddImageFromSource`,
     categoryLabel: "Multimedia",
     icon: "🎨",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Complete AppIcon.appiconset for macOS, iOS, iPadOS & watchOS in ZIP.",
-    description: "Drop a single 1024x1024 artwork to generate the complete production-ready AppIcon asset catalog. Generates all native dimensions for macOS (16px to 1024px, squircle masks), iOS, iPadOS, and watchOS, packaged with a valid Contents.json file.",
+    description: "Drop a single 1024x1024 artwork to generate the complete production-ready AppIcon asset catalog. Generates all native dimensions for macOS (16px to 1024px, squircle masks), iOS, iPadOS, and watchOS, packaged with a valid Contents.json file and native macOS .icns file.",
     capabilities: [
       "Full AppIcon.appiconset structure with exact Apple naming conventions",
       "Coverage for macOS Sonoma/Sequoia, iOS 18+, iPadOS, and watchOS",
-      "Automatic generation of .icns file for standalone macOS apps",
-      "1-click ZIP export ready to drag directly into Xcode asset catalogs"
+      "Automatic generation of .icns file for standalone macOS apps via iconutil",
+      "Live interactive mockups (macOS Dock, iOS Home Screen, Apple Watch, Safari Tab)"
     ],
-    architecture: `Planned: CoreGraphics multi-resolution renderer + ZipArchive writer
-Outputs: AppIcon.appiconset (Contents.json) + icon.icns`,
-    tags: ["AppIcon.appiconset", "Xcode Ready", "macOS ICNS", "iOS 18 Icons", "Asset Generator"]
+    architecture: `Active: CoreGraphics multi-resolution renderer + native macOS iconutil CLI
+Outputs: AppIcon.appiconset (Contents.json) + AppIcon.icns + Web Favicon Suite`,
+    tags: ["AppIcon.appiconset", "Xcode Ready", "macOS ICNS", "iOS 18 Icons", "Live Mockups"]
   },
   {
     id: "vector_svg_viewer",
@@ -429,18 +428,19 @@ Outputs: SwiftUI Path struct, clean SVG, vector PDF`,
     categoryLabel: "Multimedia",
     icon: "🎬",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "VideoToolbox hardware acceleration with HEVC/H.265, H.264 & ProRes.",
     description: "Shrink massive video files rapidly using Apple Silicon's dedicated media hardware engines. Supports HEVC/H.265, H.264, and ProRes compression with custom bitrate control, resolution scaling, and real-time output file size estimation.",
     capabilities: [
       "Apple VideoToolbox hardware-accelerated video encoding",
       "HEVC/H.265, H.264, AV1, and ProRes 422 codec support",
       "Target file size estimator with visual quality sliders",
+      "Legacy container & FourCC diagnostic inspector (RIFF/AVI, MKV, FLV, WMV)",
       "Audio passthrough to preserve original multi-channel sound"
     ],
-    architecture: `Planned: AVFoundation AVAssetExportSession + VideoToolbox hardware pipeline
-Codecs: kVTVideoCodecType_HEVC, kVTVideoCodecType_H264`,
+    architecture: `Implemented: AVFoundation AVAssetExportSession + VideoToolbox hardware pipeline
+Codecs: kVTVideoCodecType_HEVC, kVTVideoCodecType_H264, Apple ProRes 422, MediaHeaderInspector`,
     tags: ["VideoToolbox", "HEVC / H.265", "Hardware Acceleration", "Size Estimator"]
   },
   {
@@ -450,8 +450,8 @@ Codecs: kVTVideoCodecType_HEVC, kVTVideoCodecType_H264`,
     categoryLabel: "Multimedia",
     icon: "🎞️",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Optimized color quantization, customizable FPS & infinite loops.",
     description: "Convert video clips into lightweight, smooth animated GIFs. Utilizes advanced color palette quantization algorithms to prevent banding, offers granular FPS adjustment (15, 24, 30 fps), and supports precise timeline trimming with automatic looping.",
     capabilities: [
@@ -460,8 +460,8 @@ Codecs: kVTVideoCodecType_HEVC, kVTVideoCodecType_H264`,
       "Timeline video trimmer with start/end scrubbing handles",
       "Automatic loop count and dither filter controls"
     ],
-    architecture: `Planned: AVAssetImageGenerator + ImageIO CGImageDestination GIF frame writer
-APIs: kCGImagePropertyGIFDictionary, kCGImagePropertyGIFLoopCount`,
+    architecture: `Implemented: AVAssetImageGenerator + ImageIO CGImageDestination GIF frame writer
+APIs: kCGImagePropertyGIFDictionary, kCGImagePropertyGIFLoopCount, kCGImagePropertyGIFDelayTime`,
     tags: ["Animated GIF", "Color Quantization", "Video Trimmer", "FPS Control"]
   },
   {
@@ -471,8 +471,8 @@ APIs: kCGImagePropertyGIFDictionary, kCGImagePropertyGIFLoopCount`,
     categoryLabel: "Multimedia",
     icon: "🎙️",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Direct stream demuxing from video containers to MP3, AAC or FLAC.",
     description: "Extract soundtrack and audio commentary from MP4, MOV, and MKV video files. Features lossless direct stream demuxing that saves the native audio track in milliseconds without re-encoding, or converts directly to MP3 or FLAC.",
     capabilities: [
@@ -481,9 +481,30 @@ APIs: kCGImagePropertyGIFDictionary, kCGImagePropertyGIFLoopCount`,
       "Batch drop zone supporting dozens of video files simultaneously",
       "Preservation of video chapter markers and audio language metadata"
     ],
-    architecture: `Planned: AVAssetReaderTrackOutput + AVAssetWriter audio extraction pipeline
-APIs: AVAssetReader, AVAssetWriterInput`,
+    architecture: `Implemented: AVFoundation AVAssetExportSession passthrough + AVAssetReader/AVAssetWriter
+APIs: AVAssetReaderTrackOutput, NativeMP3Encoder, ExtAudioFile`,
     tags: ["Audio Demuxer", "Video to MP3", "Lossless Extraction", "Batch Workflow"]
+  },
+  {
+    id: "video_audio_adder",
+    title: "Video Audio Track Adder",
+    category: "multimedia",
+    categoryLabel: "Multimedia",
+    icon: "🎵",
+    accent: "#ec4899",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
+    subtitle: "Add and synchronize custom audio files or background tracks into video.",
+    description: "Overlay and embed custom audio tracks into existing video files. Supports queuing multiple audio clips, custom timeline offsets, individual volume mixing between original and added tracks, and ultra-fast video passthrough multiplexing without lossy re-encoding.",
+    capabilities: [
+      "Queue multiple audio files (MP3, AAC, WAV, M4A, FLAC) into a video container",
+      "Timeline synchronization with start offset and trim handles",
+      "Independent volume balance and original audio mute toggle",
+      "Lossless video stream passthrough multiplexing (remuxing in seconds)"
+    ],
+    architecture: `Implemented: AVFoundation AVMutableComposition + AVMutableAudioMix + AVAssetExportSession
+APIs: AVMutableAudioMixInputParameters, AVMutableCompositionTrack, Passthrough Remux`,
+    tags: ["Audio Muxer", "Video Dubbing", "Background Music", "Passthrough Remux"]
   },
   {
     id: "voice_recorder",
@@ -492,8 +513,8 @@ APIs: AVAssetReader, AVAssetWriterInput`,
     categoryLabel: "Multimedia",
     icon: "🎙️",
     accent: "#ec4899",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Live microphone waveform visualizer, uncompressed WAV & timeline bookmarks.",
     description: "Clean voice recording studio. Captures audio directly from connected USB or internal Mac microphones with real-time waveform level monitoring. Supports uncompressed Linear PCM WAV or high-efficiency M4A with timeline bookmark markers.",
     capabilities: [
@@ -513,8 +534,8 @@ APIs: installTap(onBus:bufferSize:format:block:) for live sample metering`,
     categoryLabel: "Converters",
     icon: "🔤",
     accent: "#10b981",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Instant encoding/decoding for text, binaries & HTML/CSS Data URIs.",
     description: "Fast Base64 workbench for web developers and engineers. Encode and decode plain strings, JSON payloads, or drop binary files (images, fonts, PDFs) to automatically produce production-ready CSS/HTML Data URIs with 1-click clipboard copy.",
     capabilities: [
@@ -523,8 +544,8 @@ APIs: installTap(onBus:bufferSize:format:block:) for live sample metering`,
       "File drop zone supporting large binary files with memory-efficient chunks",
       "Hexadecimal inspector and byte length counter"
     ],
-    architecture: `Planned: Foundation Data base64EncodedStringWithOptions + streaming encoder
-APIs: Data.base64EncodedData, NSPasteboard`,
+    architecture: `Active: Foundation Data base64EncodedStringWithOptions + streaming encoder
+APIs: Data.base64EncodedData, NSPasteboard, UniformTypeIdentifiers`,
     tags: ["Base64 Encode", "Data URI", "CSS Embedding", "Binary to Text", "Web Developer Tool"]
   },
   {
@@ -534,8 +555,8 @@ APIs: Data.base64EncodedData, NSPasteboard`,
     categoryLabel: "Converters",
     icon: "🔒",
     accent: "#10b981",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "Apple CryptoKit MD5, SHA-1, SHA-256 with file checksum comparison.",
     description: "High-speed cryptographic hash calculator accelerated by Apple CryptoKit. Compute MD5, SHA-1, SHA-256, and SHA-512 hashes simultaneously for text or multi-gigabyte ISO/DMG files, with an instant visual checksum comparison matcher.",
     capabilities: [
@@ -544,8 +565,8 @@ APIs: Data.base64EncodedData, NSPasteboard`,
       "Visual checksum comparison: paste an expected hash to receive a green match indicator",
       "HMAC key support and batch file verification"
     ],
-    architecture: `Planned: Apple CryptoKit + DispatchIO streaming file hashing
-APIs: SHA256.hash(data:), Insecure.MD5.hash(data:)`,
+    architecture: `Active: Apple CryptoKit + FileHandle streaming hashing with 1MB buffer
+APIs: SHA256, Insecure.MD5, Insecure.SHA1, SHA384, SHA512, HMAC`,
     tags: ["CryptoKit", "SHA-256", "MD5", "File Integrity", "Checksum Matcher"]
   },
   {
@@ -555,8 +576,8 @@ APIs: SHA256.hash(data:), Insecure.MD5.hash(data:)`,
     categoryLabel: "Converters",
     icon: "🎨",
     accent: "#10b981",
-    status: "roadmap",
-    statusLabel: "Roadmap • Planned",
+    status: "implemented",
+    statusLabel: "Live • v1.26.10",
     subtitle: "HEX, RGB, HSL, CMYK conversions with SwiftUI Color snippet export.",
     description: "Color workstation for Apple platform designers. Interconvert colors between HEX (#RRGGBB, #AARRGGBB), RGB (0-255 or 0.0-1.0), HSL, and CMYK. Generates copy-paste SwiftUI `Color(red:green:blue:)` and NSColor code, with a WCAG 2.1 contrast ratio checker.",
     capabilities: [
@@ -565,8 +586,8 @@ APIs: SHA256.hash(data:), Insecure.MD5.hash(data:)`,
       "WCAG 2.1 accessibility contrast analyzer (AA and AAA rating badges)",
       "Screen color eyedropper tool with magnification loupe"
     ],
-    architecture: `Planned: AppKit NSColorSpace + SwiftUI Color generator
-APIs: NSColorSampler, NSColor(colorSpace:components:count:)`,
+    architecture: `Active: AppKit NSColorSpace + SwiftUI Color generator + NSColorSampler
+APIs: NSColorSampler, AppKit sRGB, WCAG 2.1 relative luminance`,
     tags: ["SwiftUI Color", "HEX to RGB", "WCAG Contrast", "Eyedropper", "Design Tool"]
   }
 ];
@@ -844,7 +865,7 @@ window.openModuleDetail = function(moduleId) {
   elements.modalSubtitle.textContent = item.subtitle;
 
   const isLive = item.status === "implemented";
-  elements.modalStatusBadge.textContent = isLive ? "Live • v1.0" : "Roadmap • Planned";
+  elements.modalStatusBadge.textContent = isLive ? "Live • v1.26.10" : "Roadmap • Planned";
   elements.modalStatusBadge.className = `badge ${isLive ? "badge-success" : "badge-warning"}`;
 
   elements.modalCategoryBadge.textContent = item.categoryLabel;
