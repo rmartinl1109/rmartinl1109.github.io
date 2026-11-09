@@ -19,6 +19,12 @@ const screens = {
           </button>
         </div>
 
+        <div style="display: flex; gap: 6px; margin-bottom: 10px;">
+          <span class="badge-status badge-status--urgent" style="flex: 1; text-align: center;">2 Open returns</span>
+          <span class="badge-status badge-status--warning" style="flex: 1; text-align: center;">0 Expiring</span>
+          <span class="badge-status badge-status--active" style="flex: 1; text-align: center;">0 Expired</span>
+        </div>
+
         <div class="stack" style="gap: 10px;">
           <!-- Card 1: Apple Store -->
           <div class="sim-receipt-card">
