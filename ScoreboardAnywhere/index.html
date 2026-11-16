@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoreboard Anywhere — Keep score for any game, together</title>
+  <meta name="description" content="Scoreboard Anywhere is a score keeper for iPhone and iPad: rounds, darts countdown, simple counter and sets. Share the scoreboard with nearby devices, no account and no tracking.">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Scoreboard Anywhere — Keep score for any game, together">
+  <meta property="og:description" content="Rounds, darts, counters and sets. Share the scoreboard across iPhones and iPads sitting at the same table. No account, no ads, no tracking.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6740751032">
+  <link rel="canonical" href="https://rmartinl1109.github.io/ScoreboardAnywhere/">
+
+  <!-- Stylesheet (Vanilla CSS, Zero-Build) -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- SVG Icon Sprite (Self-contained, zero external scripts) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-layers" viewBox="0 0 24 24">
+      <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
+      <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/>
+      <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+      <path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+    </symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24">
+      <path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24">
+      <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24">
+      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </symbol>
+    <symbol id="icon-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="icon-cloud-off" viewBox="0 0 24 24">
+      <path d="m2 2 20 20"/><path d="M5.782 5.782A7 7 0 0 0 9 19h8.5a4.5 4.5 0 0 0 1.307-.193"/>
+      <path d="M21.532 16.5A4.5 4.5 0 0 0 17.5 10h-1.79A7.008 7.008 0 0 0 10 5.07"/>
+    </symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24">
+      <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+      <path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+      <path d="M16 16h5v5"/>
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <polygon points="6 3 20 12 6 21 6 3"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-scan-face" viewBox="0 0 24 24">
+      <path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+      <path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+      <path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <polyline points="20 6 9 17 4 12"/>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+      <path d="m6 9 6 6 6-6"/>
+    </symbol>
+    <symbol id="icon-wifi" viewBox="0 0 24 24">
+      <path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/>
+    </symbol>
+    <symbol id="icon-battery" viewBox="0 0 24 24">
+      <rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><line x1="22" x2="22" y1="11" y2="13"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+    </symbol>
+    <symbol id="icon-history" viewBox="0 0 24 24">
+      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>
+    </symbol>
+    <symbol id="icon-pencil" viewBox="0 0 24 24">
+      <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>
+    </symbol>
+    <symbol id="icon-keypad" viewBox="0 0 24 24">
+      <rect width="18" height="18" x="3" y="3" rx="3"/><path d="M8 8h.01"/><path d="M12 8h.01"/><path d="M16 8h.01"/>
+      <path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/><path d="M8 16h.01"/><path d="M12 16h.01"/>
+    </symbol>
+    <symbol id="icon-wifi-sync" viewBox="0 0 24 24">
+      <path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/>
+    </symbol>
+    <symbol id="icon-apple" viewBox="0 0 24 24">
+      <path fill="currentColor" stroke="none" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.77 1.06-1.85.94-2.93-.93.04-2.03.63-2.67 1.39-.56.65-.99 1.74-.86 2.79 1.03.08 2.06-.54 2.59-1.25z"/>
+    </symbol>
+  </svg>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a href="#hero" class="brand">
+          <div class="brand-mark">
+            <svg class="icon" aria-hidden="true"><use href="#icon-layers"/></svg>
+          </div>
+          <div>
+            <span class="brand-name">Scoreboard Anywhere</span>
+            <span class="brand-tagline">Keep score. Anywhere.</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Main Navigation">
+          <a href="#features">Features</a>
+          <a href="#demo">Live Demo</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark/Light Mode" title="Toggle theme">
+            <svg class="icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+            <svg class="icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+          </button>
+          <a href="#download" class="btn btn-primary btn-sm">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-download"/></svg>
+            <span>Download</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-grid">
+
+          <div class="hero-copy">
+            <div class="pill">
+              <span class="pill-dot"></span>
+              <span>For iPhone &amp; iPad · iOS 26</span>
+            </div>
+
+            <h1 class="hero-title">
+              One scoreboard<br>
+              <span class="gradient-text">for every game night.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Cards, darts, board games or a match of padel: add rounds with a big friendly keypad, see the standings live and let everyone at the table follow along from their own iPhone or iPad. No account, no ads, no tracking.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#download" class="btn btn-contrast">
+                <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-apple"/></svg>
+                <span>Download on the App Store</span>
+              </a>
+              <a href="#demo" class="btn btn-secondary">
+                <svg class="icon" aria-hidden="true"><use href="#icon-play"/></svg>
+                <span>Try the In-Browser Demo</span>
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span>4 ways to keep score</span>
+              <span>•</span>
+              <span>Works offline</span>
+              <span>•</span>
+              <span>10 languages</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="device device--float" aria-hidden="true">
+              <div class="device-island"><span class="live-dot"></span></div>
+              <div class="preview">
+                <div class="preview-head">
+                  <div class="preview-icon glass">
+                    <svg class="icon icon-xl" aria-hidden="true"><use href="#icon-layers"/></svg>
+                  </div>
+                  <h3 class="preview-title">Round 3 · Most points</h3>
+                  <p class="preview-text">Ana leads with 40. Marta just joined from her iPad.</p>
+                </div>
+                <div class="preview-cards">
+                  <div class="preview-card glass">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg>
+                    <span>Marta added round 3</span>
+                  </div>
+                  <div class="preview-card glass">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-keypad"/></svg>
+                    <span>Big, friendly number keypad</span>
+                  </div>
+                </div>
+                <a href="#demo" class="btn btn-light btn-block">Explore the Live Demo</a>
+              </div>
+              <div class="device-home"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What it does</span>
+          <h2 class="section-title">Everything a score keeper should be</h2>
+          <p class="section-lead">Four scoring styles, one calm and fast interface, built natively for iPhone and iPad.</p>
+        </div>
+
+        <div class="features-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-blue);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-layers"/></svg>
+            </div>
+            <h3>Points by Rounds</h3>
+            <p>Add each round, see the full table and the winner. Set a points limit and choose whether the most or the fewest points win.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-purple);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-target"/></svg>
+            </div>
+            <h3>Darts Countdown</h3>
+            <p>Start from 301, 501 or your own total. Exact zero wins, and a bust never counts. The scoreboard always shows what each player has left.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-green);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-zap"/></svg>
+            </div>
+            <h3>Simple Counter &amp; Sets</h3>
+            <p>Tap + or − for quick counts, or play best-of-N sets for padel, table tennis and volleyball.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-pink);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-wifi-sync"/></svg>
+            </div>
+            <h3>Share With Nearby Devices</h3>
+            <p>Everyone follows and adds points from their own iPhone or iPad. The host approves each person. It works without internet or an account.</p>
+            <span class="badge">iPhone · iPad</span>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-amber);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-pencil"/></svg>
+            </div>
+            <h3>Fix Any Round</h3>
+            <p>Typed a wrong number? Correct the points of any round or delete it; the rounds that follow renumber themselves. Shared matches stay in sync.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-indigo);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-history"/></svg>
+            </div>
+            <h3>History &amp; Saved Players</h3>
+            <p>Your players are remembered for the next game, ongoing matches wait for you and finished ones are kept in your history.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-green);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-shield"/></svg>
+            </div>
+            <h3>Private by Design</h3>
+            <p>No account, no ads and no analytics. Matches live on your device and travel only between the devices you choose to share with.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" style="--accent: var(--color-accent-blue);">
+              <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-globe"/></svg>
+            </div>
+            <h3>10 Languages</h3>
+            <p>English, Spanish, French, German, Italian, Portuguese (Portugal and Brazil), Japanese, Korean and Simplified Chinese.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section id="demo" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Live Preview</span>
+          <h2 class="section-title">Try it right in your browser</h2>
+          <p class="section-lead">A simplified preview of the app. Tap around: add a round, count down darts, share the table.</p>
+        </div>
+
+        <div class="demo">
+          <div id="screen-tabs" class="tabs" role="tablist" aria-label="Demo Screens"></div>
+
+          <div class="device device--demo" role="region" aria-label="Interactive Phone Preview">
+            <div class="status-bar">
+              <span id="demo-clock">09:41</span>
+              <div class="device-island"><span class="live-dot"></span></div>
+              <div class="status-icons">
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-wifi"/></svg>
+                <svg class="icon icon-sm" aria-hidden="true"><use href="#icon-battery"/></svg>
+              </div>
+            </div>
+
+            <div id="demo-viewport" class="viewport"></div>
+
+            <div class="device-home"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section section--alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2 class="section-title">Everything you need to know</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>
+              <span>Which devices and iOS versions are supported?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>Scoreboard Anywhere runs on iPhone and iPad with iOS and iPadOS 26 or later.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>How does sharing a match work?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>One device hosts the match and becomes visible to nearby iPhones and iPads. Whoever wants to join asks to enter and the host approves them. Everyone can then add points, and all screens update. It uses Apple's peer-to-peer networking, so it needs neither internet nor an account. Everyone should have the same app version.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>What happens if the connection drops?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>The guest's device keeps a copy of the match and automatically tries to reconnect to the host for a minute. While it is offline it cannot add points, so two versions of a match never diverge. If it doesn't come back, you can reconnect by hand or stop following and keep the copy as your own match.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Do I need an account? Is my data collected?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>No account and no data collection. Players and matches are stored only on your device. When you share a match, the data travels directly between the devices involved, encrypted and without any server. See the <a href="privacy.html">Privacy Policy</a>.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Can I correct a mistake in an earlier round?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>Yes. Each round has a menu to edit its points or delete it, and the following rounds are renumbered. In a darts countdown everything is recalculated, including busts and the winner.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Which languages are supported?</span>
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </summary>
+            <p>English, Spanish, French, German, Italian, Portuguese (European and Brazilian), Japanese, Korean and Simplified Chinese. The app follows your device language.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="download" class="cta-banner">
+      <div class="container">
+        <h2>Next game night, keep score the easy way</h2>
+        <p>Download Scoreboard Anywhere for iPhone and iPad and let everyone follow the table from their own device.</p>
+        <a href="https://apps.apple.com/app/id6740751032" class="btn btn-light">
+          <svg class="icon icon-lg" aria-hidden="true"><use href="#icon-apple"/></svg>
+          <span>View on the App Store</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>Scoreboard Anywhere</strong>
+          <span>•</span>
+          <span>© 2026 Roberto Martín. All rights reserved.</span>
+        </div>
+        <nav class="footer-links" aria-label="Legal & Support Navigation">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="support.html">Contact &amp; Support</a>
+          <a href="https://rmartinl1109.github.io/">More apps</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roberto Martín — Software NATIVO para Apple (iOS & macOS)</title>
   <meta name="description"
-    content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown, CountFlow, KitchenFlow, TicketBox Vault y Funny Maths para iOS, y UtilityBox para macOS.">
+    content="Descubre las aplicaciones nativas para el ecosistema Apple desarrolladas por Roberto Martín: Final Countdown, CountFlow, KitchenFlow, TicketBox Vault, Funny Maths y Scoreboard Anywhere para iOS, y UtilityBox para macOS.">
   <meta name="keywords"
-    content="Roberto Martín, iOS, macOS, watchOS, Final Countdown, CountFlow, KitchenFlow, TicketBox Vault, Funny Maths, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
+    content="Roberto Martín, iOS, macOS, watchOS, Final Countdown, CountFlow, KitchenFlow, TicketBox Vault, Funny Maths, Scoreboard Anywhere, UtilityBox, Swift 6, SwiftUI, SwiftData, Apps Apple">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="FinalCountdown/assets/icon.png">
@@ -16,7 +16,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Roberto Martín — Aplicaciones Nativas iOS & macOS">
   <meta property="og:description"
-    content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow, KitchenFlow, TicketBox Vault, Funny Maths y UtilityBox.">
+    content="Diseño prémium, máximo rendimiento y privacidad absoluta: Final Countdown, CountFlow, KitchenFlow, TicketBox Vault, Funny Maths, Scoreboard Anywhere y UtilityBox.">
   <meta property="og:image" content="FinalCountdown/assets/icon.png">
   <meta property="og:type" content="website">
 
@@ -45,6 +45,8 @@
       --accent-tb-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
       --accent-fm: #10b981;
       --accent-fm-gradient: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
+      --accent-sa: #7a3df0;
+      --accent-sa-gradient: linear-gradient(135deg, #5b3df5 0%, #7a3df0 50%, #d62fb5 100%);
       --accent-ub: #3b82f6;
       --accent-ub-gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
       --badge-bg: rgba(255, 255, 255, 0.06);
@@ -328,6 +330,10 @@
       background: var(--accent-fm-gradient);
     }
 
+    .app-card.card-sa::before {
+      background: var(--accent-sa-gradient);
+    }
+
     .app-card.card-ub::before {
       background: var(--accent-ub-gradient);
     }
@@ -358,6 +364,14 @@
       flex-shrink: 0;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: transform 0.35s ease;
+    }
+
+    .app-icon-sa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-sa-gradient);
+      color: #ffffff;
     }
 
     .app-card:hover .app-icon {
@@ -409,6 +423,12 @@
       background: rgba(16, 185, 129, 0.15);
       color: #34d399;
       border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-ios-sa {
+      background: rgba(122, 61, 240, 0.15);
+      color: #c4b5fd;
+      border: 1px solid rgba(122, 61, 240, 0.3);
     }
 
     .badge-macos {
@@ -480,6 +500,10 @@
 
     .card-fm .check-icon {
       color: #10b981;
+    }
+
+    .card-sa .check-icon {
+      color: #a855f7;
     }
 
     .card-ub .check-icon {
@@ -589,6 +613,18 @@
       transform: translateY(-2px);
     }
 
+    .btn-sa-primary {
+      background: var(--accent-sa-gradient);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(122, 61, 240, 0.35);
+      border: none;
+    }
+
+    .btn-sa-primary:hover {
+      box-shadow: 0 6px 22px rgba(214, 47, 181, 0.45);
+      transform: translateY(-2px);
+    }
+
     .btn-ub-primary {
       background: var(--accent-ub-gradient);
       color: #ffffff;
@@ -670,6 +706,7 @@
     .footer-links {
       display: flex;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .footer-link {
@@ -1101,7 +1138,85 @@
           </div>
         </article>
 
-        <!-- APP 6: UtilityBox -->
+        <!-- APP 6: Scoreboard Anywhere -->
+        <article class="app-card card-sa">
+          <div class="card-top">
+            <a href="ScoreboardAnywhere/index.html" aria-label="Scoreboard Anywhere">
+              <div class="app-icon app-icon-sa">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+                  <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+                  <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+                </svg>
+              </div>
+            </a>
+            <div class="app-identity">
+              <span class="app-platform-badge badge-ios-sa">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path
+                    d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+                  <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+                </svg>
+                iOS 26+ &bull; iPhone &amp; iPad
+              </span>
+              <a href="ScoreboardAnywhere/index.html" style="text-decoration: none; color: inherit;">
+                <h3 class="app-title">Scoreboard Anywhere</h3>
+              </a>
+              <p class="app-tagline">Marcador universal y partidas compartidas en tiempo real</p>
+            </div>
+          </div>
+
+          <p class="app-description">
+            Lleva la puntuación de cualquier partida en iPhone y iPad: por rondas, cuenta atrás de dardos (301/501),
+            contador rápido o por sets para pádel o tenis de mesa. Comparte el marcador con dispositivos cercanos sin
+            necesidad de cuenta, anuncios ni rastreo.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>4 modos de puntuación: Rondas, Dardos, Contador y Sets</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Partidas compartidas entre iPhone y iPad cercanos sin internet</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Edición de rondas anteriores con recálculo y renumeración</span>
+            </li>
+            <li class="feature-item">
+              <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>Sin cuenta ni rastreo, historial local y 10 idiomas</span>
+            </li>
+          </ul>
+
+          <div class="tag-cloud">
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">Peer-to-Peer</span>
+            <span class="tech-pill">Offline First</span>
+            <span class="tech-pill">10 Idiomas</span>
+            <span class="tech-pill">Zero Tracking</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="ScoreboardAnywhere/index.html" class="btn btn-sa-primary" style="width: 100%;">
+              <span>Ver Scoreboard Anywhere</span> &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- APP 7: UtilityBox -->
         <article class="app-card card-ub">
           <div class="card-top">
             <a href="UtilityBox/index.html">
@@ -1213,6 +1328,7 @@
           <a href="KitchenFlow/index.html" class="footer-link">KitchenFlow</a>
           <a href="TicketBoxVault/index.html" class="footer-link">TicketBox Vault</a>
           <a href="funnyMaths/index.html" class="footer-link">Funny Maths</a>
+          <a href="ScoreboardAnywhere/index.html" class="footer-link">Scoreboard Anywhere</a>
           <a href="UtilityBox/index.html" class="footer-link">UtilityBox</a>
           <a href="https://github.com/rmartinl1109" target="_blank" rel="noopener noreferrer"
             class="footer-link">GitHub</a>
