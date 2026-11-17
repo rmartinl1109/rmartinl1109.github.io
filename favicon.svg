@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background squircle gradient matching site dark slate theme -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="55%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#090b10"/>
+    </linearGradient>
+
+    <!-- Subtle ambient glow inside icon -->
+    <radialGradient id="glow-blue" cx="75%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-amber" cx="20%" cy="85%" r="55%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glassy top border highlight -->
+    <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0.22"/>
+    </linearGradient>
+
+    <!-- Letter R gradient (crisp platinum white) -->
+    <linearGradient id="r-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <!-- Letter M gradient (Apple-inspired cyan -> blue -> indigo) -->
+    <linearGradient id="m-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+
+    <!-- Accent bar gradient -->
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect x="8" y="8" width="496" height="496" rx="116" fill="url(#bg-grad)"/>
+  <rect x="8" y="8" width="496" height="496" rx="116" fill="url(#glow-blue)"/>
+  <rect x="8" y="8" width="496" height="496" rx="116" fill="url(#glow-amber)"/>
+  <rect x="10" y="10" width="492" height="492" rx="114" fill="none" stroke="url(#border-grad)" stroke-width="4"/>
+
+  <!-- Monogram: R -->
+  <path d="M 116 332 L 116 156 L 174 156 C 206 156 218 176 218 202 C 218 228 206 246 174 246 L 116 246 M 170 246 L 218 332"
+        fill="none"
+        stroke="url(#r-grad)"
+        stroke-width="34"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Monogram: M -->
+  <path d="M 268 332 L 268 156 L 332 254 L 396 156 L 396 332"
+        fill="none"
+        stroke="url(#m-grad)"
+        stroke-width="34"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Subtle precision accent bar -->
+  <rect x="116" y="376" width="280" height="10" rx="5" fill="url(#accent-grad)" opacity="0.9"/>
+</svg>
